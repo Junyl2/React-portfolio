@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FiX } from 'react-icons/fi';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -17,7 +18,36 @@ import art9 from '@assets/art9.jpg';
 const images = [test1, test2, test3, test4, art9, test6, art7, art8, test5];
 
 const ImageCarousel = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        setSelectedIndex(null);
+      }
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedIndex(null);
+      }
+    };
+
+    if (selectedIndex !== null) {
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedIndex]);
 
   return (
     <>
@@ -32,18 +62,17 @@ const ImageCarousel = () => {
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
           }}
-          className="mySwiper"
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
               <div
-                className="rounded-xl  shadow-[var(--card-shadow)] overflow-hidden  hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                onClick={() => setSelectedImage(img)}
+                className="rounded-xl shadow-[var(--card-shadow)] overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                onClick={() => setSelectedIndex(index)}
               >
                 <img
                   src={img}
                   alt={`Art ${index}`}
-                  className="w-full   h-60 object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
@@ -53,26 +82,32 @@ const ImageCarousel = () => {
       </div>
 
       {/* Modal */}
-      {selectedImage && (
-        <div
-          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 bg-black/80  flex items-center justify-center z-9999 p-4 w-screen h-screen"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div
-            className="relative max-w-4xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedImage}
-              alt="Selected"
-              className="w-full max-h-[80vh] rounded-lg object-contain"
-            />
+      {selectedIndex !== null && (
+        <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center p-4">
+          <div className="w-xl" ref={modalRef}>
+            <Swiper
+              modules={[Navigation]}
+              navigation
+              initialSlide={selectedIndex}
+              onSlideChange={(swiper) => setSelectedIndex(swiper.activeIndex)}
+            >
+              {images.map((img, idx) => (
+                <SwiperSlide key={idx}>
+                  <img
+                    src={img}
+                    alt={`Selected ${idx}`}
+                    className="w-full max-h-[80vh] rounded-lg object-contain relative"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
             <button
-              className="absolute top-2 right-2 text-white text-3xl font-bold hover:text-gray-300"
-              onClick={() => setSelectedImage(null)}
+              className="absolute top-15 right-6 md:top-2 md:right-2  text-white text-5xl font-bold hover:text-gray-300 z-50 cursor-pointer"
+              onClick={() => setSelectedIndex(null)}
               aria-label="Close modal"
             >
-              &times;
+              <FiX />
             </button>
           </div>
         </div>

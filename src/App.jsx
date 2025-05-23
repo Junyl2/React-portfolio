@@ -2,6 +2,7 @@ import SideBar from './components/SideBar';
 import { Routes, Route } from 'react-router-dom';
 import ToggleTheme from './context/ToggleTheme';
 import React, { Suspense } from 'react';
+import StarsBackground from './components/StarsBackground';
 
 const Home = React.lazy(() => import('./components/Home'));
 const About = React.lazy(() => import('./components/About'));
@@ -16,6 +17,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </main> */}
+      <StarsBackground />
       <ToggleTheme />
 
       <Suspense
@@ -32,7 +34,7 @@ function App() {
           <section>
             <Home />
           </section>
-          <section className="px-3">
+          <section className="sm:px-3">
             <About />
           </section>
         </main>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { FiArrowRight } from 'react-icons/fi';
 
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,13 +27,13 @@ function NavBar() {
       className={`${
         scrolled ? 'md:fixed md:top-0 ' : 'md:absolute md:top-0'
       } fixed bottom-0 md:bottom-auto w-full z-[1000] transition-all duration-500 ease-in-out
-        ${scrolled ? 'bg-black/30' : 'bg-transparent'}
+        ${scrolled ? 'bg-black/80' : 'bg-transparent'}
         md:rounded-none rounded-t-xl backdrop-blur-lg `}
       data-aos="fade-right"
       data-aos-delay="100"
     >
       <div className="flex items-center justify-center md:justify-between  lg:px-5 lg:py-2 md:py-1 transition-all duration-300  md:pr-2">
-        <ul className="flex justify-evenly md:justify-start w-full md:w-auto gap-2 md:rounded-full p-1.5 nav-bg transition-all duration-300 md:ml-20 lg:ml-25 ">
+        <ul className="flex justify-evenly md:justify-start w-full md:w-auto gap-2 md:rounded-full p-1.5 nav-bg  transition-all duration-300 md:ml-20 lg:ml-25 ">
           <li>
             <Link
               to="home"
@@ -101,8 +102,8 @@ function NavBar() {
         </ul>
 
         {/* Optional desktop-only button */}
-        <button className="contact-btn text-white p-3 text-sm border-white border-1  rounded-full cursor-pointer hidden  md:flex lg:flex">
-          Get In Touch
+        <button className="contact-btn text-white p-2 gap-1 text-sm rounded-full cursor-pointer hidden  md:flex lg:flex items-center justify-center">
+          Get In Touch <FiArrowRight />
         </button>
       </div>
     </nav>

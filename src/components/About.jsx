@@ -16,7 +16,7 @@ const About = () => {
 
   return (
     <section
-      className="flex flex-col items-center justify-center min-h-screen bg-body text-[var(--text-color)] px-4 py-12
+      className="flex relative flex-col items-center justify-center min-h-screen  text-[var(--text-color)] px-4 py-12
       "
       id="about"
     >
@@ -42,18 +42,18 @@ const About = () => {
               JUNYL CABUSAS - WEB DEVELOPER
             </h4>
 
-            <p>
+            <p className="global-text">
               I'm a passionate developer experienced in building full-stack
               applications using ReactJs, TailwindCss, WordPress, Elementor,
               HTML5, CSS3, Sass, Bootstrap, NodeJs, ExpressJs and modern web
               tools. I love crafting visually appealing websites, user-friendly,
               clean, and efficient web solutions.
-            </p>
-            <p>
-              I'm detail-oriented, always eager to learn new technologies, and
-              thrive in team environments where collaboration leads to impactful
-              results. My goal is to continuously grow as a developer and
-              contribute to meaningful projects.
+              <span className="flex flex-col pt-7">
+                I'm detail-oriented, always eager to learn new technologies, and
+                thrive in team environments where collaboration leads to
+                impactful results. My goal is to continuously grow as a
+                developer and contribute to meaningful projects.
+              </span>
             </p>
 
             <div className="flex gap-4 mt-4">
@@ -75,7 +75,7 @@ const About = () => {
         </div>
 
         {/* Services */}
-        <div className="text-center mt-20">
+        <div className="text-start mt-20">
           <h2
             className="header-color heading-size font-bold mb-8"
             data-aos="fade-right"
@@ -93,7 +93,9 @@ const About = () => {
             >
               <div className="text-3xl mb-4"></div>
               <h5 className="text-xl font-semibold mb-2"> UI/UX</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p className="global-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
             </div>
             <div
               className="card"
@@ -103,7 +105,7 @@ const About = () => {
             >
               <div className="text-3xl mb-4"></div>
               <h5 className="text-xl font-semibold mb-2">Web Development</h5>
-              <p>
+              <p className="global-text">
                 Crafting responsive, user-friendly websites tailored to your
                 needs.
               </p>
@@ -116,7 +118,9 @@ const About = () => {
             >
               <div className="text-3xl mb-4"></div>
               <h5 className="text-xl font-semibold mb-2">Web Design</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p className="global-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
             </div>
           </div>
         </div>
@@ -124,14 +128,14 @@ const About = () => {
         {/* Artworks */}
         <div className="mt-20">
           <h1
-            className="header-color text-center mb-4 heading-size font-bold"
+            className="header-color text-start mb-4 heading-size font-bold"
             data-aos="fade-right"
             data-aos-delay="100"
           >
             My Artworks
           </h1>
           <p
-            className="text-center max-w-2xl mx-auto mb-10"
+            className="text-start max-w-2xl  mb-10 global-text"
             data-aos="fade-right"
             data-aos-delay="100"
           >
@@ -139,28 +143,11 @@ const About = () => {
             artistic perspective often influences my UI/UX decisions and helps
             me bring a unique visual touch to my web projects.
           </p>
-
-          <ImageCarousel />
-
-          {/*  <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-4">
-            {[test1, test2, test3, test4, art9, test6, art7, art8, test5].map(
-              (img, index) => (
-                <div
-                  className="overflow-hidden  rounded-xl shadow-md"
-                  key={index}
-                >
-                  <img
-                    src={img}
-                    alt={`Art ${index + 1}`}
-                    className="w-100 h-90  object-cover transition-transform duration-300 transform hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              )
-            )}
-          </div> */}
         </div>
       </div>
+      <section className="max-w-6xl w-full">
+        <ImageCarousel />
+      </section>
     </section>
   );
 };
