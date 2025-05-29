@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FiX } from 'react-icons/fi';
 import { Navigation } from 'swiper/modules';
@@ -35,29 +36,68 @@ const ImageCarousel = () => {
     };
 
     if (selectedIndex !== null) {
-      document.body.style.overflow = 'hidden';
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('keydown', handleKeyDown);
+      document.body.classList.add('modal-open');
+      window.addEventListener('mousedown', handleClickOutside);
+      window.addEventListener('keydown', handleKeyDown);
     } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     }
 
     return () => {
-      document.body.style.overflow = '';
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleKeyDown);
+      document.body.classList.remove('modal-open');
+      window.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedIndex]);
 
+  const renderModal = () => {
+    if (selectedIndex === null) return null;
+
+    return ReactDOM.createPortal(
+      <div className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+          ref={modalRef}
+          className="relative w-full max-w-4xl max-h-full mx-auto flex items-center justify-center"
+        >
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            initialSlide={selectedIndex}
+            onSlideChange={(swiper) => setSelectedIndex(swiper.activeIndex)}
+          >
+            {images.map((img, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  src={img}
+                  alt={`Full view ${idx + 1}`}
+                  className="w-full max-h-[80vh] object-contain rounded-lg"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <button
+            onClick={() => setSelectedIndex(null)}
+            aria-label="Close image viewer"
+            className="absolute top-4 right-4 text-white text-4xl p-2 rounded-full hover:text-gray-300 transition z-50"
+          >
+            <FiX />
+          </button>
+        </div>
+      </div>,
+      document.body
+    );
+  };
+
   return (
     <>
-      <div className="relative max-w-7xl mx-auto rounded-xl px-4">
+      <div className="relative max-w-7xl mx-auto rounded-xl">
         <Swiper
           modules={[Navigation]}
           navigation
           spaceBetween={20}
           breakpoints={{
-            0: { slidesPerView: 2 },
+            0: { slidesPerView: 1.5 },
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
@@ -66,13 +106,13 @@ const ImageCarousel = () => {
           {images.map((img, index) => (
             <SwiperSlide key={index}>
               <div
-                className="rounded-xl shadow-[var(--card-shadow)] overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 cursor-pointer"
                 onClick={() => setSelectedIndex(index)}
               >
                 <img
                   src={img}
-                  alt={`Art ${index}`}
-                  className="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
+                  alt={`Artwork ${index + 1}`}
+                  className="w-full h-60 object-cover transition-transform duration-300 hover:scale-105"
                   loading="lazy"
                 />
               </div>
@@ -81,37 +121,7 @@ const ImageCarousel = () => {
         </Swiper>
       </div>
 
-      {/* Modal */}
-      {selectedIndex !== null && (
-        <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center p-4">
-          <div className="w-xl" ref={modalRef}>
-            <Swiper
-              modules={[Navigation]}
-              navigation
-              initialSlide={selectedIndex}
-              onSlideChange={(swiper) => setSelectedIndex(swiper.activeIndex)}
-            >
-              {images.map((img, idx) => (
-                <SwiperSlide key={idx}>
-                  <img
-                    src={img}
-                    alt={`Selected ${idx}`}
-                    className="w-full max-h-[80vh] rounded-lg object-contain relative"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            <button
-              className="absolute top-15 right-6 md:top-2 md:right-2  text-white text-5xl font-bold hover:text-gray-300 z-50 cursor-pointer"
-              onClick={() => setSelectedIndex(null)}
-              aria-label="Close modal"
-            >
-              <FiX />
-            </button>
-          </div>
-        </div>
-      )}
+      {renderModal()}
     </>
   );
 };

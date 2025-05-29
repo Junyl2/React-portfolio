@@ -10,6 +10,9 @@ const __dirname = path.dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig({
+  /*   base: '/React-portfolio/', */
+  /*   base: '/', */
+
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
