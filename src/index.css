@@ -19,8 +19,8 @@
   --card-border: 1px solid rgb(58, 58, 58);
   --header-gradient: linear-gradient(
     to right,
-    white 0%,
-    #942c97 22%,
+    rgb(245, 169, 235) 0%,
+    #942c97 80%,
     #750280 100%
   );
   --landingName-gradient: linear-gradient(
@@ -37,7 +37,8 @@
   );
   --svg-gradient: rgb(5, 5, 15);
   --heading-2: #b043cc;
-  --text-color: #ede6f7;
+  --text-color: #c9d1d9;
+  /* --text-color: #ede6f7; */
   --nav-text-color: #d1b8f9;
   --nav-bg: transparent;
 
@@ -215,7 +216,10 @@ html.light {
   }
 
   .global-text {
-    @apply text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-[var(--text-color)] font-normal;
+    @apply text-[13px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-[var(--text-color)] font-normal;
+  }
+  .contact-text {
+    @apply text-gray-600 text-[13px] sm:text-[13px] md:text-[14px] lg:text-[15px] font-normal;
   }
 
   .skill-box {
@@ -227,6 +231,18 @@ html.light {
     cursor: pointer;
   }
   .skill-box:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: var(--card-shadow);
+  }
+  .tech-box {
+    @apply text-[12px] sm:text-[12px] md:text-[13px] lg:text-[13px] font-normal py-1 px-2 rounded-2xl text-[var(--text-color)]  border-1;
+    background-color: var(--card-color);
+    border: var(--card-border);
+    width: fit-content;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    cursor: pointer;
+  }
+  .tech-box:hover {
     transform: translateY(-5px) !important;
     box-shadow: var(--card-shadow);
   }
@@ -272,6 +288,9 @@ html.light {
     color: transparent; */
     color: var(--text-color);
   }
+  .divider-color {
+    background: var(--header-gradient);
+  }
   .landing-header {
     background-image: var(--landingName-gradient);
     background-clip: text;
@@ -311,7 +330,7 @@ html.light {
     color: var(--text-color);
   }
   .card-description {
-    @apply text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-[var(--text-color)] font-normal;
+    @apply text-[14px] sm:text-[14px] md:text-[14px] lg:text-[15px] text-[var(--text-color)] font-normal leading-relaxed;
 
     color: var(--text-color);
   }

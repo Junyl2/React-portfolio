@@ -32,7 +32,7 @@ function NavBar() {
       /* data-aos="fade-none"
       data-aos-delay="2500"
       data-aos-duration="100" */
-      data-aos="fade-right"
+      data-aos="fade"
     >
       {/* flex items-center justify-center md:justify-between  lg:px-5 lg:py-2 md:py-1 transition-all duration-300  md:pr-2  */}
       <div className="flex items-center justify-between md:justify-between landing-container py-3">
@@ -90,26 +90,32 @@ function NavBar() {
               Projects
             </Link>
           </li>
-
-          <li className="hide-contact">
+          <li>
             <Link
               to="contacts"
               smooth={true}
               duration={500}
-              offset={-10}
+              offset={-30}
               spy={true}
               activeClass="active"
-              className="nav-button "
+              className="nav-button"
             >
               Contact
             </Link>
           </li>
         </ul>
-
-        {/* Optional desktop-only button */}
-        <button className="  contact-btn text-white py-2 px-4 gap-1 text-[12px] rounded-full cursor-pointer hidden  md:flex lg:flex items-center justify-center tansform transition-all ease-in-out hover:scale-105 nav-glow">
+        {/* get in touch */}
+        <Link
+          to="contacts"
+          smooth={true}
+          duration={500}
+          offset={-30}
+          spy={true}
+          activeClass="active"
+          className="contact-btn text-white py-2 px-4 gap-1 text-[12px] rounded-full cursor-pointer hidden  md:flex lg:flex items-center justify-center tansform transition-all ease-in-out hover:scale-105 nav-glow"
+        >
           Get In Touch <FiArrowRight />
-        </button>
+        </Link>
       </div>
     </nav>
   );

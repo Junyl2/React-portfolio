@@ -36,7 +36,7 @@ function App() {
     if (isImagesReady) {
       const delay = setTimeout(() => {
         setShowLoader(false);
-      }, 2500); // delay after images are loaded
+      }, 2500);
 
       return () => clearTimeout(delay);
     }
