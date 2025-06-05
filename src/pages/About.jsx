@@ -6,6 +6,8 @@ import webdev from '../assets/web-dev.jpg';
 import webdesign from '../assets/web-design.jpg';
 import uiux from '../assets/Ui-UX.jpg';
 import aboutImg from '@assets/about-pp.png';
+import { Link } from 'react-scroll';
+import { FiExternalLink } from 'react-icons/fi';
 
 const About = () => {
   useEffect(() => {
@@ -23,7 +25,7 @@ const About = () => {
       id="about"
     >
       <div className="" data-aos="fade">
-        <div className="flex flex-col  lg:flex-row gap-10 items-center  justify-center">
+        <div className="flex flex-col  lg:flex-row gap-10 items-center md:items-start  justify-center">
           <div className="w-60 h-60 sm:w-80 sm:h-80 rounded-lg md:h-100 md:w-100 max-w-sm profile-bg">
             <img
               src={aboutImg}
@@ -33,44 +35,63 @@ const About = () => {
           </div>
 
           <div className="flex flex-col gap-4 text-start max-w-2xl ">
-            <div className="flex justify-start ">
+            <div className="flex justify-center md:justify-start items-center ">
               <h1 className="header-color text-center heading-size relative">
                 ABOUT ME
-                <span className="block h-[3px] w-1/2 bg-violet-500 mx-auto mt-2 rounded-full" />
+                <span className="block h-[4px] w-1/2 divider-color mx-auto mt-2 rounded-full" />
               </h1>
             </div>
 
-            <h4 className="text-md font-semibold text-[var(--heading-1)]">
+            <h4 className="text-md font-semibold text-[var(--text-color)]">
               JUNYL CABUSAS - WEB DEVELOPER
             </h4>
-
-            <p className="global-text">
-              I'm a passionate developer experienced in building full-stack
-              applications using ReactJs, TailwindCss, WordPress, Elementor,
-              HTML5, CSS3, Sass, Bootstrap, NodeJs, ExpressJs and modern web
-              tools. I love crafting visually appealing websites, user-friendly,
-              clean, and efficient web solutions.
+            <p className="global-text pt-2 leading-relaxed">
+              I'm a passionate and detail-oriented developer focused on crafting
+              exceptional user experiences. While I specialize in front-end
+              development, I'm always eager to expand my skill set and explore
+              new technologies. My core expertise lies in building responsive
+              and visually engaging websites using React.js and Tailwind CSS. I
+              also design intuitive user interfaces with Figma and have some
+              hands-on experience in WordPress development using Elementor for
+              efficient page building and I've previously used Bootstrap to
+              develop responsive front-end designs.
               <span className="flex flex-col pt-7">
-                I'm detail-oriented, always eager to learn new technologies, and
-                thrive in team environments where collaboration leads to
-                impactful results. My goal is to continuously grow as a
-                developer and contribute to meaningful projects.
+                I thrive in collaborative environments, value clean and
+                maintainable code, and am constantly driven to learn and grow.
+                My goal is to contribute to meaningful projects that make a real
+                impact while continuing to evolve as a developer.
               </span>
             </p>
 
             <div className="flex gap-4 mt-4">
               <a
-                href="resume.pdf"
-                download
-                className="contact-btn text-white px-4 py-2 rounded-full shadow tansform transition-all ease-in-out hover:scale-105 nav-glow"
+                href="/junylresume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 contact-btn text-white px-4 py-2 rounded-full shadow transform transition-all ease-in-out hover:scale-105 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 nav-glow"
               >
-                Download CV
+                View Resume <FiExternalLink className="text-lg" />
               </a>
-              <a
-                href="/contact"
-                className="border border-[var(--heading-2)] px-4 py-2 rounded-full hover:bg-[var(--btn-hover))] text-[var(--text-color)] contact-glow transition-colors"
+
+              {/* <Link
+                to="contacts"
+                spy={true}
+                duration={500}
+                offset={-30}
+                smooth={true}
+                activeClass="active"
+                className="border border-[var(--heading-2)] px-4 py-2 rounded-full hover:bg-[var(--btn-hover))] text-[var(--text-color)] contact-glow transition-colors cursor-pointer"
               >
                 Contact Me
+              </Link> */}
+              <a
+                href="/certificates.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-[var(--card-color)]  gap-2 px-5 py-2.5 border border-[var(--heading-2)] rounded-full text-[var(--text-color)] hover:bg-[var(--btn-hover)] hover:opacity-80 transition-all duration-300 ease-in-out shadow-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+              >
+                Certificates
+                <FiExternalLink className="text-base group-hover:scale-110 transition-transform duration-200" />
               </a>
             </div>
           </div>
@@ -91,29 +112,37 @@ const About = () => {
             data-aos-delay="100"
             data-aos-duration="300"
           >
+            {/* UI/UX */}
             <div className="card">
               <img
                 src={uiux}
-                alt="Web Design"
+                alt="UI/UX"
                 className="mb-2 rounded h-[180px] w-full object-cover"
               />
-              <h5 className="card-title mb-2"> UI/UX</h5>
+              <h5 className="card-title mb-2">UI/UX</h5>
               <p className="card-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                I create wireframes, interactive prototypes, and intuitive user
+                flows using tools like Figma—ensuring a seamless and
+                user-centered experience.
               </p>
             </div>
+
+            {/* Web Development */}
             <div className="card" data-aos="fade" data-aos-delay="100">
               <img
                 src={webdev}
-                alt="Web Design"
+                alt="Web Development"
                 className="mb-2 rounded h-[180px] w-full object-cover"
               />
               <h5 className="card-title mb-2">Web Development</h5>
               <p className="card-description">
-                Crafting responsive, user-friendly websites tailored to your
-                needs.
+                I build responsive and visually appealing websites using
+                React.js and Tailwind CSS—focusing on performance,
+                accessibility, and modern design best practices.
               </p>
             </div>
+
+            {/* Web Design */}
             <div className="card" data-aos="fade" data-aos-delay="100">
               <img
                 src={webdesign}
@@ -122,7 +151,9 @@ const About = () => {
               />
               <h5 className="card-title mb-2">Web Design</h5>
               <p className="card-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                I design clean, engaging landing pages and modern website
+                layouts that align with brand identity and enhance user
+                interaction.
               </p>
             </div>
           </div>
@@ -134,7 +165,7 @@ const About = () => {
             My Artworks
           </h1>
           <p
-            className="text-start max-w-2xl  mb-10  text-gray-600"
+            className="text-start max-w-2xl  mb-10 global-text text-gray-600 leading-relaxed"
             /*   data-aos="fade-right"
             data-aos-delay="100" */
           >

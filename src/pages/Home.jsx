@@ -66,7 +66,7 @@ const Home = () => {
                 </h2>
               </div>
               <div className="flex items-center justify-start w-full border-l-4 border-l-white pl-3">
-                <p className="landing-header text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] text-start">
+                <p className=" text-white text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] text-start leading-relaxed">
                   An aspiring Web Developer <br /> that has an eye for design{' '}
                   <br /> and a passion for coding.
                 </p>
@@ -95,7 +95,7 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center cursor-pointer transition-all transform icon-hover"
               >
-                <i className="fab fa-github text-white text-sm sm:text-lg md:text-xl"></i>
+                <i className="fab fa-github text-white text-lg sm:text-lg md:text-xl"></i>
               </a>
 
               {/* LinkedIn */}
@@ -105,15 +105,15 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center cursor-pointer transition-all transform icon-hover"
               >
-                <i className="fab fa-linkedin-in text-white text-sm sm:text-lg md:text-xl"></i>
+                <i className="fab fa-linkedin-in text-white text-lg sm:text-lg md:text-xl"></i>
               </a>
 
               {/* Gmail */}
               <a
-                href="mailto:your.artbyjunylc@gmail.com"
+                href="mailto:artbyjunylc@gmail.com"
                 className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center cursor-pointer transition-all transform icon-hover"
               >
-                <i className="fas fa-envelope text-white text-sm sm:text-lg md:text-xl"></i>
+                <i className="fas fa-envelope text-white text-lg sm:text-lg md:text-xl"></i>
               </a>
 
               {/* Facebook */}
@@ -123,7 +123,7 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center cursor-pointer transition-all transform icon-hover"
               >
-                <i className="fab fa-facebook-f text-white text-sm sm:text-lg md:text-xl"></i>
+                <i className="fab fa-facebook-f text-white text-lg sm:text-lg md:text-xl"></i>
               </a>
             </div>
 

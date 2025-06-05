@@ -2,6 +2,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { FiMail, FiPhone } from 'react-icons/fi';
 
 function Contacts() {
   const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@ function Contacts() {
       });
 
       if (response.ok) {
-        setSubmittedName(formData.name); // Save name BEFORE clearing
+        setSubmittedName(formData.name);
         setIsSubmitted(true);
         setFormData({
           name: '',
@@ -90,54 +91,61 @@ function Contacts() {
   };
 
   return (
-    <div className="container" id="contacts" data-aos="fade">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-        <div className="flex flex-col items-center justify-center p-6">
-          <h1 className="text-[var(--text-color)] text-center heading-size relative">
+    <div className="container my-20" data-aos="fade" id="contacts">
+      <div className="flex items-start justify-center  flex-col md:flex-row gap-6">
+        <div className="flex flex-col items-center md:items-start justify-center ">
+          <h1 className="text-[var(--text-color)] heading-size relative ">
             CONTACT ME
-            <span className="block h-[3px] w-1/2 bg-violet-400 mx-auto mt-2 rounded-full" />
+            <span className="block h-[4px] w-1/2 divider-color mx-auto mt-2 rounded-full" />
           </h1>
-          <p className="text-center text-gray-600 mt-4 max-w-md">
+          <p className="text-center md:text-start text-gray-600 mt-4 max-w-md leading-relaxed">
             Feel free to reach out for collaborations or freelance projects! I
             specialize in landing pages, modern web design, page builders, and
-            full web development. Let's build something great together!
+            web development. Let's build something great together!
           </p>
-
-          <div className="flex items-center justify-center z-10 space-x-3 mt-4">
-            <a
-              href="https://github.com/Junyl2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center icon-hover"
-            >
-              <i className="fab fa-github text-white text-sm md:text-xl"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/Junyl2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center icon-hover"
-            >
-              <i className="fab fa-linkedin-in text-white text-sm md:text-xl"></i>
-            </a>
-            <a
-              href="mailto:your.artbyjunylc@gmail.com"
-              className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center icon-hover"
-            >
-              <i className="fas fa-envelope text-white text-sm md:text-xl"></i>
-            </a>
-            <a
-              href="https://facebook.com/junyl2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center icon-hover"
-            >
-              <i className="fab fa-facebook-f text-white text-sm md:text-xl"></i>
-            </a>
+          <div className="flex flex-col items-start justify-center mt-4 w-full">
+            <div className="flex flex-col items-start justify-center gap-3">
+              <p className=" flex items-center justify-start gap-2 text-[var(--text-color)] ">
+                {' '}
+                <FiMail /> artbyjunylc@gmail.com
+              </p>
+              <p className=" flex items-center justify-start gap-2  text-[var(--text-color)] ">
+                {' '}
+                <FiPhone /> +63 9633 818 902
+              </p>
+            </div>
+            <div className="flex items-start justify-start z-10 gap-2 ">
+              <a
+                href="https://github.com/Junyl2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-start icon-hover"
+              >
+                <i className="fab fa-github text-[var(--text-color)] text-lg "></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/Junyl2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-start icon-hover"
+              >
+                <i className="fab fa-linkedin-in text-[var(--text-color)] text-lg "></i>
+              </a>
+              <a
+                href="mailto:your.artbyjunylc@gmail.com"
+                className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-start icon-hover"
+              >
+                <i className="fas fa-envelope text-[var(--text-color)] text-lg "></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center p-6">
+        <div className="flex flex-col items-center justify-center ">
+          <h2 className="  contact-text global-text pb-5 max-w-md">
+            You can fill up the form to message me directly, I'll get back to
+            you as soon as possible!
+          </h2>
           <form className="w-full max-w-md" onSubmit={handleSubmit}>
             <div className="flex items-center space-x-3">
               <input
