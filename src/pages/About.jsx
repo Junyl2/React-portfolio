@@ -65,7 +65,7 @@ const About = () => {
 
             <div className="flex gap-4 mt-4">
               <a
-                href="/cabusasjunyl.pdf"
+                href="/junylresume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 contact-btn text-white px-4 py-2 rounded-full shadow transform transition-all ease-in-out hover:scale-105 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 nav-glow"
