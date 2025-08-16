@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 
 :root {
-  /* --color-bg: rgb(5, 5, 15); */
-
   --footer-bg: rgb(4, 4, 4);
   --bg-gradient: radial-gradient(
     circle at top left,
@@ -11,12 +9,14 @@
     rgba(29, 0, 51, 0.4) 30%,
     rgba(5, 0, 20, 0.6) 50%,
     rgba(2, 0, 10, 0.85) 75%,
-    rgba(0, 0, 5, 0.95) 100% /* space black */
+    rgba(0, 0, 5, 0.95) 100%
   );
 
   --card-color: black;
   --card-shadow: 0 6px 20px rgba(183, 0, 255, 0.4);
   --card-border: 1px solid rgb(58, 58, 58);
+  --border-color: rgb(58, 58, 58);
+
   --header-gradient: linear-gradient(
     to right,
     rgb(245, 169, 235) 0%,
@@ -52,7 +52,8 @@
     #f72585 100%
   );
 
-  --box-shadow: 0px 0px 5px #7209b7, 0px 0px 7px #b51793, 0px 0px 9px #7209b7,
+  --box-shadow:
+    0px 0px 5px #7209b7, 0px 0px 7px #b51793, 0px 0px 9px #7209b7,
     0px 0px 15px #f72585;
 
   /*  --profile-bg: #381060; */
@@ -68,11 +69,11 @@ html.light {
   --bg-gradient: radial-gradient(
     circle at top left,
     rgba(39, 146, 7, 0.9) 0%,
-    /* bright green core */ rgba(25, 77, 10, 0.7) 20%,
-    /* deep green */ rgba(15, 30, 10, 0.6) 40%,
-    /* very dark green/black mix */ rgba(5, 10, 5, 0.7) 60%,
-    /* near black with slight green tint */ rgba(2, 5, 2, 0.9) 85%,
-    /* darker, subtle green hint */ rgba(0, 0, 0, 1) 100% /* space black */
+    rgba(25, 77, 10, 0.7) 20%,
+    rgba(15, 30, 10, 0.6) 40%,
+    rgba(5, 10, 5, 0.7) 60%,
+    rgba(2, 5, 2, 0.9) 85%,
+    rgba(0, 0, 0, 1) 100%
   );
   --footer-bg: #f0f0f0;
   --color-bg: rgb(255, 255, 255);
@@ -81,6 +82,7 @@ html.light {
   --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   --card-light-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   --card-border: 1px solid rgba(223, 221, 221, 0.849);
+  --border-color: rgba(223, 221, 221, 0.849);
   /*   --card-border: 1px solid rgba(255, 255, 255, 0.1); */
   --profile-bg: rgb(225, 225, 225);
   --nav-bg: #f3faf0;
@@ -227,7 +229,9 @@ html.light {
     background-color: var(--card-color);
     border: var(--card-border);
     width: fit-content;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease !important;
     cursor: pointer;
   }
   .skill-box:hover {
@@ -239,7 +243,9 @@ html.light {
     background-color: var(--card-color);
     border: var(--card-border);
     width: fit-content;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease !important;
     cursor: pointer;
   }
   .tech-box:hover {
@@ -308,20 +314,24 @@ html.light {
   .card {
     background-color: var(--card-color);
     border: var(--card-border);
-    box-shadow: var(--card-light-shadow);
+    /* box-shadow: var(--card-light-shadow); */
     border-radius: 10px;
     padding: 30px 20px;
     color: var(--text-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease !important;
   }
   .project-card {
     background-color: var(--card-color);
     border: var(--card-border);
-    box-shadow: var(--card-light-shadow);
+    /*  box-shadow: var(--card-light-shadow); */
     border-radius: 10px;
     padding: 30px 20px;
     color: var(--text-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease !important;
   }
 
   .card-title {
@@ -371,6 +381,10 @@ html.light {
     background-color: var(--profile-bg);
     border: var(--card-border);
   }
+}
+
+summary::-webkit-details-marker {
+  display: none !important;
 }
 
 #root {

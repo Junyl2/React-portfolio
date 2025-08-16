@@ -91,17 +91,18 @@ function Contacts() {
   };
 
   return (
-    <div className="container my-20" data-aos="fade" id="contacts">
+    <div className="container lg:mb-30 lg:mt-30" data-aos="fade" id="contacts">
       <div className="flex items-start justify-center  flex-col md:flex-row gap-6">
         <div className="flex flex-col items-center md:items-start justify-center ">
           <h1 className="text-[var(--text-color)] heading-size relative ">
             CONTACT ME
             <span className="block h-[4px] w-1/2 divider-color mx-auto mt-2 rounded-full" />
           </h1>
-          <p className="text-center md:text-start text-gray-600 mt-4 max-w-md leading-relaxed">
-            Feel free to reach out for collaborations or freelance projects! I
-            specialize in landing pages, modern web design, page builders, and
-            web development. Let's build something great together!
+          <p className="text-start text-gray-600 mt-4 max-w-md leading-relaxed">
+            Feel free to reach out for collaborations or freelance projects. I
+            specialize in landing pages, modern web design, page builders, web
+            development and data analytics. Let's build something great
+            together!
           </p>
           <div className="flex flex-col items-start justify-center mt-4 w-full">
             <div className="flex flex-col items-start justify-center gap-3">

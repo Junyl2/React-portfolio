@@ -2,8 +2,7 @@ import HomeBg from '../assets/home-black.png';
 import React, { useEffect, useState } from 'react';
 import { FiArrowDownRight, FiChevronDown, FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-scroll';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { motion } from 'framer-motion';
 
 const titles = [
   'developer',
@@ -20,14 +19,6 @@ const Home = () => {
   const [currentTitle, setCurrentTitle] = useState(0);
 
   useEffect(() => {
-    AOS.init({
-      once: true,
-      duration: 600,
-      easing: 'ease-in-out',
-    });
-  }, []);
-
-  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTitle((prev) => (prev + 1) % titles.length);
     }, 1800);
@@ -35,7 +26,14 @@ const Home = () => {
   }, []);
 
   return (
-    <section id="home" className="h-[100dvh] relative" data-aos="fade-right">
+    <motion.section
+      initial={{ opacity: 0, x: -70 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      id="home"
+      className="h-[100dvh] relative"
+      /*       data-aos="fade-right" */
+    >
       <div className="relativ mt-[-60px] md:mt-0">
         <div
           className="h-screen w-full relative flex items-center justify-between"
@@ -61,7 +59,7 @@ const Home = () => {
                 </h2>
               </div>
               <div className="flex items-center justify-start w-full">
-                <h2 className="landing-header font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-start">
+                <h2 className="landing-header font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-start">
                   JUNYL <br /> CABUSAS
                 </h2>
               </div>
@@ -73,7 +71,7 @@ const Home = () => {
               </div>
               <button className="contact-btn  text-white py-2 px-3 text-[12px] sm:text-sm rounded-full cursor-pointer flex items-center justify-center gap-2 md:hidden lg:hidden tansform transition-all ease-in-out hover:scale-105">
                 <Link
-                  to="about"
+                  to="contacts"
                   smooth={true}
                   duration={500}
                   offset={-30}
@@ -155,7 +153,7 @@ const Home = () => {
         offset={-30}
         className="fas fa-chevron-down text-white text-3xl animate-bounce absolute bottom-5  left-1/2 transform-translate-x-1/2 z-50 cursor-pointer"
       ></Link>
-    </section>
+    </motion.section>
   );
 };
 
