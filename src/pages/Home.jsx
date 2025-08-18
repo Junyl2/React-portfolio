@@ -65,7 +65,7 @@ const Home = () => {
               </div>
               <div className="flex items-center justify-start w-full border-l-4 border-l-white pl-3">
                 <p className=" text-white text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] text-start leading-relaxed">
-                  An aspiring Web Developer <br /> that has an eye for design{' '}
+                  A Software Developer<br /> that has an eye for design{' '}
                   <br /> and a passion for coding.
                 </p>
               </div>

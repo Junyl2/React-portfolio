@@ -3,6 +3,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import currentProject from '@assets/currentProject.png';
 import careProject from '@assets/care.png';
+import solarProject from '@assets/solar.png'
+import lodongProject from '@assets/lodong_web.png';
 import project1 from '@assets/project1.png';
 import project2 from '@assets/project2.png';
 import project3 from '@assets/project3.png';
@@ -97,13 +99,42 @@ function Projects() {
     'Swagger UI',
   ];
 
+  const solar = [
+    'Angular',
+    'TypeScript',
+    'CSS',
+    'BootStrap',
+    'Swagger UI',
+    'Java',
+    'SpringBoot'
+  ]
+
   const projectList = [
+
     {
       title: 'Care Management Website ',
       githubLink: 'https://github.com/PackageWeb/care_manager_web',
       description:
         'I developed the front-end and implemented API integration for a care management platform (Korea-based Company) designed to assist the elderly in Korea with essential services such as health monitoring, meal assistance, bathing support, and more. The project focused on delivering a user-friendly and fully responsive interface with seamless connectivity to backend services, ensuring smooth access to various care options.',
       image: careProject,
+      techStack: careManagement,
+      liveLink: '',
+    },
+     {
+      title: 'Solar Maintenance App',
+      githubLink: 'https://github.com/Junyl2/Solar_mantainance_workspace',
+      description:
+        'Contributed by modifying the UI to be fully responsive and improving API connections for seamless performance.',
+      image: solarProject,
+      techStack: solar,
+      liveLink: '',
+    },
+    {
+      title: 'Lodong Company Dashboard',
+      githubLink: 'https://github.com/Junyl2/lodong_web_workspace',
+      description:
+        'Integrated APIs and improved data handling features for the company’s internal dashboard, enhancing efficiency and usability.',
+      image: lodongProject,
       techStack: careManagement,
       liveLink: '',
     },
@@ -132,7 +163,7 @@ function Projects() {
         'A clean, responsive multi-page dynamic website portfolio built with HTML, CSS, JavaScript and Bootstrap. Optimized for SEO and accessibility.',
       image: project2,
       techStack: secondProjectTech,
-      liveLink: 'https://portfolio.junylcabusas.ct.ws/',
+      liveLink: 'https://junyl2.github.io/junyl-portfolio/',
     },
     {
       title: 'School Website',

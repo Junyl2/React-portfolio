@@ -86,7 +86,7 @@ const About = () => {
 
             <div className="flex gap-6 mt-4 items-center">
               <a
-                href="/myresume.pdf"
+                href="/junyl-cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[13px] sm:text-[13px] md:text-[14px] lg:text-[15px] group text-sm px-3 py-1.5 rounded-md nav-glow text-white contact-btn hover:bg-gray-100 flex items-center gap-1 transition "
