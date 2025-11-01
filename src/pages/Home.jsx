@@ -2,8 +2,7 @@ import HomeBg from '../assets/home-black.png';
 import React, { useEffect, useState } from 'react';
 import { FiArrowDownRight, FiChevronDown, FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-scroll';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { motion } from 'framer-motion';
 
 const titles = [
   'developer',
@@ -20,14 +19,6 @@ const Home = () => {
   const [currentTitle, setCurrentTitle] = useState(0);
 
   useEffect(() => {
-    AOS.init({
-      once: true,
-      duration: 600,
-      easing: 'ease-in-out',
-    });
-  }, []);
-
-  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTitle((prev) => (prev + 1) % titles.length);
     }, 1800);
@@ -35,7 +26,14 @@ const Home = () => {
   }, []);
 
   return (
-    <section id="home" className="h-[100dvh] relative" data-aos="fade-right">
+    <motion.section
+      initial={{ opacity: 0, x: -70 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      id="home"
+      className="h-[100dvh] relative"
+      /*       data-aos="fade-right" */
+    >
       <div className="relativ mt-[-60px] md:mt-0">
         <div
           className="h-screen w-full relative flex items-center justify-between"
@@ -61,19 +59,19 @@ const Home = () => {
                 </h2>
               </div>
               <div className="flex items-center justify-start w-full">
-                <h2 className="landing-header font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-start">
+                <h2 className="landing-header font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-start">
                   JUNYL <br /> CABUSAS
                 </h2>
               </div>
               <div className="flex items-center justify-start w-full border-l-4 border-l-white pl-3">
-                <p className="landing-header text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] text-start">
-                  An aspiring Web Developer <br /> that has an eye for design{' '}
+                <p className=" text-white text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] text-start leading-relaxed">
+                  A Software Developer<br /> that has an eye for design{' '}
                   <br /> and a passion for coding.
                 </p>
               </div>
               <button className="contact-btn  text-white py-2 px-3 text-[12px] sm:text-sm rounded-full cursor-pointer flex items-center justify-center gap-2 md:hidden lg:hidden tansform transition-all ease-in-out hover:scale-105">
                 <Link
-                  to="about"
+                  to="contacts"
                   smooth={true}
                   duration={500}
                   offset={-30}
@@ -95,7 +93,7 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center cursor-pointer transition-all transform icon-hover"
               >
-                <i className="fab fa-github text-white text-sm sm:text-lg md:text-xl"></i>
+                <i className="fab fa-github text-white text-lg sm:text-lg md:text-xl"></i>
               </a>
 
               {/* LinkedIn */}
@@ -105,15 +103,15 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center cursor-pointer transition-all transform icon-hover"
               >
-                <i className="fab fa-linkedin-in text-white text-sm sm:text-lg md:text-xl"></i>
+                <i className="fab fa-linkedin-in text-white text-lg sm:text-lg md:text-xl"></i>
               </a>
 
               {/* Gmail */}
               <a
-                href="mailto:your.artbyjunylc@gmail.com"
+                href="mailto:artbyjunylc@gmail.com"
                 className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center cursor-pointer transition-all transform icon-hover"
               >
-                <i className="fas fa-envelope text-white text-sm sm:text-lg md:text-xl"></i>
+                <i className="fas fa-envelope text-white text-lg sm:text-lg md:text-xl"></i>
               </a>
 
               {/* Facebook */}
@@ -123,7 +121,7 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center cursor-pointer transition-all transform icon-hover"
               >
-                <i className="fab fa-facebook-f text-white text-sm sm:text-lg md:text-xl"></i>
+                <i className="fab fa-facebook-f text-white text-lg sm:text-lg md:text-xl"></i>
               </a>
             </div>
 
@@ -155,7 +153,7 @@ const Home = () => {
         offset={-30}
         className="fas fa-chevron-down text-white text-3xl animate-bounce absolute bottom-5  left-1/2 transform-translate-x-1/2 z-50 cursor-pointer"
       ></Link>
-    </section>
+    </motion.section>
   );
 };
 

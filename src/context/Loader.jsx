@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Loader({ isVisible = true }) {
   return (
     <AnimatePresence>
-      {isVisible && (
+      {isVisible && ( 
         <motion.div
           key="loader"
           initial={{ opacity: 1, scale: 1 }}

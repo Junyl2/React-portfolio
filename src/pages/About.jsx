@@ -5,7 +5,11 @@ import ImageCarousel from '../components/ImageCarousell';
 import webdev from '../assets/web-dev.jpg';
 import webdesign from '../assets/web-design.jpg';
 import uiux from '../assets/Ui-UX.jpg';
-import aboutImg from '@assets/about-pp.png';
+/* import aboutImg from '@assets/about-pp.png'; */
+import aboutImg from '@assets/junyl.jpg';
+import powerbi from '@assets/dashboard.jpg';
+import { Link } from 'react-scroll';
+import { FiExternalLink } from 'react-icons/fi';
 
 const About = () => {
   useEffect(() => {
@@ -22,55 +26,83 @@ const About = () => {
       "
       id="about"
     >
-      <div className="" data-aos="fade">
-        <div className="flex flex-col  lg:flex-row gap-10 items-center  justify-center">
-          <div className="w-60 h-60 sm:w-80 sm:h-80 rounded-lg md:h-100 md:w-100 max-w-sm profile-bg">
+      <div className="mt-10 sm:mt-10 md:mt-0 lg:mt-0">
+        <div
+          className="flex flex-col  lg:flex-row gap-10 items-center md:justify-center lg:items-center  justify-center"
+          data-aos="fade"
+        >
+          <div className="w-60 h-70 sm:w-70 sm:h-90 rounded-lg md:h-100 md:w-80 max-w-sm profile-bg">
             <img
               src={aboutImg}
               alt="About"
-              className="rounded-lg shadow-lg w-60 h-60 sm:w-80 sm:h-80 md:h-100 md:w-100 object-cover "
+              className="rounded-lg shadow-lg w-60 h-70 sm:w-70 sm:h-90 md:h-100 md:w-80 object-cover"
             />
           </div>
 
           <div className="flex flex-col gap-4 text-start max-w-2xl ">
-            <div className="flex justify-start ">
+            <div className="flex justify-center md:justify-center lg:justify-start items-center ">
               <h1 className="header-color text-center heading-size relative">
                 ABOUT ME
-                <span className="block h-[3px] w-1/2 bg-violet-500 mx-auto mt-2 rounded-full" />
+                <span className="block h-[4px] w-1/2 divider-color mx-auto mt-2 rounded-full" />
               </h1>
             </div>
 
-            <h4 className="text-md font-semibold text-[var(--heading-1)]">
+            <h4 className="text-md font-semibold text-center md:text-center lg:text-start text-[var(--text-color)]">
               JUNYL CABUSAS - WEB DEVELOPER
             </h4>
+            <div className="space-y-6">
+              <p className="global-text leading-relaxed indent-8 sm:indent-8 md:indent-16 lg:indent-0 text-justify">
+                I'm a passionate and detail-oriented developer focused on
+                crafting exceptional user experiences. While I specialize in
+                front-end development, I have professional project experience
+                with <strong>Next.js and TypeScript </strong>
+                for a Korea-based company. My responsibilities included{' '}
+                <strong>
+                  API integrations, working with Swagger UI, and maintaining and
+                  modifying existing projects, like modifying UI, fixing
+                  responsiveness, bugs and fixing api connections on
+                  Angular/Next.js project
+                </strong>
+                . My core expertise lies in building responsive and visually
+                engaging websites using React.js, Next.js, and Tailwind CSS. I
+                also design intuitive user interfaces with Figma and have
+                hands-on experience in WordPress development using Elementor for
+                efficient page building. Additionally, I've worked with
+                Bootstrap to deliver responsive designs and maintain design
+                consistency.
+              </p>
 
-            <p className="global-text">
-              I'm a passionate developer experienced in building full-stack
-              applications using ReactJs, TailwindCss, WordPress, Elementor,
-              HTML5, CSS3, Sass, Bootstrap, NodeJs, ExpressJs and modern web
-              tools. I love crafting visually appealing websites, user-friendly,
-              clean, and efficient web solutions.
-              <span className="flex flex-col pt-7">
-                I'm detail-oriented, always eager to learn new technologies, and
-                thrive in team environments where collaboration leads to
-                impactful results. My goal is to continuously grow as a
-                developer and contribute to meaningful projects.
-              </span>
-            </p>
+              <p className="global-text leading-relaxed indent-8 sm:indent-8 md:indent-16 lg:indent-0 text-justify">
+                I thrive in collaborative environments, value clean and
+                maintainable code, and am constantly driven to learn and grow.
+                Beyond front-end development, I'm expanding my backend knowledge
+                through the MERN stack (MongoDB, Express.js, React.js, and
+                Node.js) to strengthen my full-stack capabilities. My goal is to
+                contribute to impactful projects, leverage my Next.js and
+                TypeScript expertise, and continue evolving as a versatile
+                developer.
+              </p>
+            </div>
 
-            <div className="flex gap-4 mt-4">
+            <div className="flex gap-6 mt-4 items-center">
               <a
-                href="resume.pdf"
-                download
-                className="contact-btn text-white px-4 py-2 rounded-full shadow tansform transition-all ease-in-out hover:scale-105 nav-glow"
+                href="/junyl-cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] sm:text-[13px] md:text-[14px] lg:text-[15px] group text-sm px-3 py-1.5 rounded-md nav-glow text-white contact-btn hover:bg-gray-100 flex items-center gap-1 transition "
               >
-                Download CV
+                Resume{' '}
+                <FiExternalLink className="text-base opacity-70 group-hover:translate-x-0.5 transition-transform" />
               </a>
+
               <a
-                href="/contact"
-                className="border border-[var(--heading-2)] px-4 py-2 rounded-full hover:bg-[var(--btn-hover))] text-[var(--text-color)] contact-glow transition-colors"
+                href="/certificates.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] sm:text-[13px] md:text-[14px] lg:text-[15px] group text-sm font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors flex items-center gap-1 underline underline-offset-4"
               >
-                Contact Me
+                Certificates
+                <FiExternalLink className="text-base opacity-70 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
           </div>
@@ -86,34 +118,42 @@ const About = () => {
           </h2>
 
           <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             data-aos="fade"
             data-aos-delay="100"
             data-aos-duration="300"
           >
+            {/* UI/UX */}
             <div className="card">
               <img
                 src={uiux}
-                alt="Web Design"
+                alt="UI/UX"
                 className="mb-2 rounded h-[180px] w-full object-cover"
               />
-              <h5 className="card-title mb-2"> UI/UX</h5>
+              <h5 className="card-title mb-2">UI/UX</h5>
               <p className="card-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                I create wireframes, interactive prototypes, and intuitive user
+                flows using tools like Figma—ensuring a seamless and
+                user-centered experience.
               </p>
             </div>
+
+            {/* Web Development */}
             <div className="card" data-aos="fade" data-aos-delay="100">
               <img
                 src={webdev}
-                alt="Web Design"
+                alt="Web Development"
                 className="mb-2 rounded h-[180px] w-full object-cover"
               />
               <h5 className="card-title mb-2">Web Development</h5>
               <p className="card-description">
-                Crafting responsive, user-friendly websites tailored to your
-                needs.
+                I build responsive and visually appealing websites using
+                React.js and Tailwind CSS—focusing on performance,
+                accessibility, and modern design best practices.
               </p>
             </div>
+
+            {/* Web Design */}
             <div className="card" data-aos="fade" data-aos-delay="100">
               <img
                 src={webdesign}
@@ -122,7 +162,24 @@ const About = () => {
               />
               <h5 className="card-title mb-2">Web Design</h5>
               <p className="card-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                I design clean, engaging landing pages and modern website
+                layouts that align with brand identity and enhance user
+                interaction.
+              </p>
+            </div>
+
+            {/* Data Analytics */}
+            <div className="card" data-aos="fade" data-aos-delay="100">
+              <img
+                src={powerbi}
+                alt="Data Analytics"
+                className="mb-2 rounded h-[180px] w-full object-cover"
+              />
+              <h5 className="card-title mb-2">Data Analytics</h5>
+              <p className="card-description">
+                I create insightful dashboards and reports using Power BI to
+                visualize business data, uncover trends, and support data-driven
+                decision-making.
               </p>
             </div>
           </div>
@@ -134,7 +191,7 @@ const About = () => {
             My Artworks
           </h1>
           <p
-            className="text-start max-w-2xl  mb-10  text-gray-600"
+            className="text-start max-w-2xl  mb-10 global-text text-gray-600 leading-relaxed"
             /*   data-aos="fade-right"
             data-aos-delay="100" */
           >
@@ -144,12 +201,7 @@ const About = () => {
           </p>
         </div>
       </div>
-      <section
-        className="w-full"
-        data-aos="fade-right"
-        /*  data-aos="fade"
-        data-aos-delay="100" */
-      >
+      <section className="w-full" data-aos="fade-right">
         <ImageCarousel />
       </section>
     </section>
