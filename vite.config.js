@@ -8,12 +8,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// https://vite.dev/config/
 export default defineConfig({
-  /*   base: '/React-portfolio/', */
-  /*   base: '/', */
+  base: '/React-portfolio/',
 
   plugins: [react(), tailwindcss()],
+
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, 'src/assets'),

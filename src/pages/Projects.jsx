@@ -10,8 +10,6 @@ import project1 from '@assets/movie-mock.png';
 import project2 from '@assets/project2.png';
 import project3 from '@assets/tcc-mock.png';
 import project4 from '@assets/project4.png';
-import project5 from '@assets/project5.png';
-import project6 from '@assets/project6.png';
 import nflix from '@assets/nflix-min.png';
 import ghub from '@assets/ghub-min.png';
 import sflow from '@assets/sflow-min.png';
@@ -118,7 +116,7 @@ function Projects() {
       title: 'Pet Save App',
       githubLink: 'https://github.com/Junyl2/pet_save_app_workspace',
       description:
-        'I built the front-end for client/seller/admin pages and integrated APIs for a Korea-based pet e-commerce mobile app, delivering a fast, modern, and fully responsive user experience.',
+        'I built the front-end for client and integrated APIs for a Korea-based pet e-commerce mobile app, delivering a fast, modern, and fully responsive user experience.',
       image: petSave,
       techStack: careManagement,
       liveLink: 'https://petsave.co.kr',

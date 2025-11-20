@@ -1,5 +1,6 @@
 {
   "name": "junyl-portfolio",
+  "homepage": "https://junyl2.github.io/React-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "predeploy": "npm run build ",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --no-history",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -41,17 +42,16 @@
     "vite": "^6.3.5"
   },
   "browserslist": {
-  "production": [
-    ">0.5%",
-    "last 2 versions",
-    "not dead",
-    "not op_mini all"
-  ],
-  "development": [
-    "last 1 chrome version",
-    "last 1 firefox version",
-    "last 1 safari version"
-  ]
-}
-
+    "production": [
+      ">0.5%",
+      "last 2 versions",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
