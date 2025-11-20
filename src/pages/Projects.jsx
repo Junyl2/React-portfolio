@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import currentProject from '@assets/currentProject.png';
-import careProject from '@assets/care.png';
-import solarProject from '@assets/solar.png'
+import careProject from '@assets/all-devices-black.png';
+import solarProject from '@assets/solar.png';
 import lodongProject from '@assets/lodong_web.png';
-import project1 from '@assets/project1.png';
+import petSave from '@assets/pet-save.png';
+import project1 from '@assets/movie-mock.png';
 import project2 from '@assets/project2.png';
-import project3 from '@assets/project3.png';
+import project3 from '@assets/tcc-mock.png';
 import project4 from '@assets/project4.png';
 import project5 from '@assets/project5.png';
 import project6 from '@assets/project6.png';
@@ -59,6 +60,7 @@ function Projects() {
     'Git',
     'GitHub',
   ];
+
   const secondProjectTech = [
     'HTML5',
     'CSS3',
@@ -70,6 +72,7 @@ function Projects() {
     'Git',
     'GitHub',
   ];
+
   const thirdProjectTech = [
     'Wordpress',
     'Elementor',
@@ -77,6 +80,7 @@ function Projects() {
     'CSS',
     'JavaScript',
   ];
+
   const fourthProjectTech = [
     'React.js',
     'Tailwind CSS',
@@ -106,10 +110,19 @@ function Projects() {
     'BootStrap',
     'Swagger UI',
     'Java',
-    'SpringBoot'
-  ]
+    'SpringBoot',
+  ];
 
   const projectList = [
+    {
+      title: 'Pet Save App',
+      githubLink: 'https://github.com/Junyl2/pet_save_app_workspace',
+      description:
+        'I built the front-end for client/seller/admin pages and integrated APIs for a Korea-based pet e-commerce mobile app, delivering a fast, modern, and fully responsive user experience.',
+      image: petSave,
+      techStack: careManagement,
+      liveLink: 'https://petsave.co.kr',
+    },
 
     {
       title: 'Care Management Website ',
@@ -118,16 +131,16 @@ function Projects() {
         'I developed the front-end and implemented API integration for a care management platform (Korea-based Company) designed to assist the elderly in Korea with essential services such as health monitoring, meal assistance, bathing support, and more. The project focused on delivering a user-friendly and fully responsive interface with seamless connectivity to backend services, ensuring smooth access to various care options.',
       image: careProject,
       techStack: careManagement,
-      liveLink: '',
+      liveLink: 'https://kdolbom.com/',
     },
-     {
-      title: 'Solar Maintenance App',
+    {
+      title: 'Solar Maintenance Dashboard',
       githubLink: 'https://github.com/Junyl2/Solar_mantainance_workspace',
       description:
         'Contributed by modifying the UI to be fully responsive and improving API connections for seamless performance.',
       image: solarProject,
       techStack: solar,
-      liveLink: '',
+      liveLink: 'https://on-energy.kr/',
     },
     {
       title: 'Lodong Company Dashboard',
@@ -137,6 +150,25 @@ function Projects() {
       image: lodongProject,
       techStack: careManagement,
       liveLink: '',
+    },
+
+    {
+      title: 'School Website',
+      githubLink: 'https://github.com/Junyl2/TCC---School-website',
+      description:
+        'A responsive, performance-optimized website showcasing school information, programs, enrollment, events, and services. Includes contact details for inquiries. Backend integration coming soon',
+      image: project3,
+      techStack: secondProjectTech,
+      liveLink: 'https://talisactcitycollege.netlify.app',
+    },
+    {
+      title: 'Online Streaming Website',
+      githubLink: 'https://github.com/Junyl2/react-movie-app',
+      description:
+        'A responsive movie streaming web app that allows users to browse, search, add to a watch list, and view movie trailers in real-time. Logged-in users can save their watch list to their account using Firebase Authentication. A full-stack version using Express.js and MongoDB for persistent favorite storage is also implemented but not yet deployed, as it still needs polishing and optimization.',
+      image: project1,
+      techStack: firstProjectTech,
+      liveLink: 'https://junyl2.github.io/react-movie-app',
     },
     {
       title: 'Clothing E-commerce',
@@ -148,15 +180,6 @@ function Projects() {
       liveLink: '',
     },
     {
-      title: 'Online Streaming App',
-      githubLink: 'https://github.com/Junyl2/react-movie-app',
-      description:
-        'A responsive movie streaming web app that allows users to browse, search, add to a watch list, and view movie trailers in real-time. Logged-in users can save their watch list to their account using Firebase Authentication. A full-stack version using Express.js and MongoDB for persistent favorite storage is also implemented but not yet deployed, as it still needs polishing and optimization.',
-      image: project1,
-      techStack: firstProjectTech,
-      liveLink: 'https://junyl2.github.io/react-movie-app',
-    },
-    {
       title: 'First Personal Portfolio',
       githubLink: 'https://github.com/Junyl2/junyl-portfolio',
       description:
@@ -165,24 +188,7 @@ function Projects() {
       techStack: secondProjectTech,
       liveLink: 'https://junyl2.github.io/junyl-portfolio/',
     },
-    {
-      title: 'School Website',
-      githubLink: 'https://github.com/Junyl2/TCC---School-website',
-      description:
-        'A responsive, performance-optimized website showcasing school information, programs, enrollment, events, and services. Includes contact details for inquiries. Backend integration coming soon',
-      image: project3,
-      techStack: secondProjectTech,
-      liveLink: 'https://talisactcitycollege.netlify.app',
-    },
-    /*  {
-      title: 'React Course',
-      githubLink: 'https://github.com/Junyl2/Armada-logics-React-Course',
-      description:
-        'I took React.js course from Armada Logics, Inc. during my remote internship. This course covers the fundamentals of React, including components, rendering, state management, hooks, axios and more.',
-      image: project5,
-      techStack: fourthProjectTech,
-      liveLink: 'https://junyl2.github.io/Armada-logics-React-Course',
-    }, */
+
     {
       title: 'Travel App',
       description:
@@ -191,15 +197,7 @@ function Projects() {
       techStack: thirdProjectTech,
       liveLink: '',
     },
-    /*   {
-      title: 'E-commerce App (Team Project)',
-      githubLink: 'https://github.com/Junyl2/E-commerce-ArmadaLogics',
-      description:
-        'A front-end food eCommerce application developed within a 2-day deadline during our internship at Armada Logics as part of the Web Fundamentals course. This was our first team-based project, and I contributed approximately 60% of the overall codebase. While the core functionality was completed on time, some UI elements—such as button styling and authentication layout—still have room for improvement. Throughout the process, we encountered and resolved GitHub collaboration issues and managed tight schedules effectively.',
-      image: project6,
-      techStack: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
-      liveLink: 'https://restokainanph.netlify.app/',
-    }, */
+
     {
       title: 'Internship Practice Projects (Desktop UI)',
       description:
@@ -249,6 +247,8 @@ function Projects() {
           const isInternship = project.title === 'Internship Practice Projects';
           const isExpanded = showFull[index] || isInternship;
           const shortDesc = project.description?.slice(0, 150);
+          const showReadMore =
+            project.description && project.description.length > 150;
 
           return (
             <div
@@ -262,18 +262,21 @@ function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover rounded-md mb-4"
+                  className="w-full h-50 md:h-60 lg:h-80 object-contain rounded-md mb-4"
                 />
               )}
+
               <h2 className="card-title text-xl font-bold text-[var(--text-color)] mt-4 mb-4">
                 {project.title}
               </h2>
+
               {project.description && (
                 <p className="card-description text-gray-600 mb-2">
                   {isExpanded ? project.description : `${shortDesc}...`}
                 </p>
               )}
-              {!isInternship && (
+
+              {showReadMore && !isInternship && (
                 <button
                   onClick={() => handleToggle(index)}
                   className="text-blue-600 hover:underline text-sm mb-2"
@@ -281,6 +284,7 @@ function Projects() {
                   {isExpanded ? 'Show Less' : 'Read More'}
                 </button>
               )}
+
               {project.techStack && (
                 <div>
                   <p className="mb-2 text-sm font-medium">Technologies Used:</p>
@@ -296,6 +300,7 @@ function Projects() {
                   </ul>
                 </div>
               )}
+
               {project.customLinks ? (
                 <div className="mt-4 w-full">
                   <p className="mb-2 text-sm font-semibold">Projects:</p>
@@ -322,6 +327,7 @@ function Projects() {
                               className="w-full max-h-48 h-auto object-contain rounded-md mb-2"
                             />
                           )}
+
                           <div className="mb-2">
                             <span className="text-sm font-medium text-[var(--text-color)]">
                               {link.label}
@@ -330,6 +336,7 @@ function Projects() {
                               Desktop focused only
                             </p>
                           </div>
+
                           <div className="flex justify-center gap-4 mt-auto">
                             <a
                               href={link.github}
@@ -368,6 +375,7 @@ function Projects() {
                       <i className="fab fa-github fa-lg"></i>
                     </a>
                   )}
+
                   {project.liveLink && (
                     <a
                       href={project.liveLink}

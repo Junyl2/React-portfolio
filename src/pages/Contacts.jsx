@@ -106,14 +106,14 @@ function Contacts() {
           </p>
           <div className="flex flex-col items-start justify-center mt-4 w-full">
             <div className="flex flex-col items-start justify-center gap-3">
-              <p className=" flex items-center justify-start gap-2 text-[var(--text-color)] ">
+              {/*  <p className=" flex items-center justify-start gap-2 text-[var(--text-color)] ">
                 {' '}
                 <FiMail /> artbyjunylc@gmail.com
               </p>
               <p className=" flex items-center justify-start gap-2  text-[var(--text-color)] ">
                 {' '}
                 <FiPhone /> +63 9633 818 902
-              </p>
+              </p> */}
             </div>
             <div className="flex items-start justify-start z-10 gap-2 ">
               <a

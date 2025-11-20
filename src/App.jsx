@@ -10,7 +10,7 @@ const Contacts = React.lazy(() => import('@pages/Contacts'));
 const Projects = React.lazy(() => import('@pages/Projects'));
 const NavBar = React.lazy(() => import('@components/NavBar'));
 const ToggleTheme = React.lazy(() => import('@context/ToggleTheme'));
-const Footer = React.lazy(()=> import('@components/Footer'));
+const Footer = React.lazy(() => import('@components/Footer'));
 
 const imagesToPreload = [
   '@assets/home-black.png',
@@ -68,11 +68,12 @@ function App() {
                 <About />
               </section>
               <section>
-                <Skills />
-              </section>
-              <section>
                 <Projects />
               </section>
+              <section>
+                <Skills />
+              </section>
+
               <section>
                 <Contacts />
               </section>

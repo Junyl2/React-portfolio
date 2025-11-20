@@ -62,19 +62,6 @@ function NavBar() {
           </li>
           <li>
             <Link
-              to="skills"
-              smooth={true}
-              duration={500}
-              offset={-30}
-              spy={true}
-              activeClass="active"
-              className="nav-button"
-            >
-              Skills
-            </Link>
-          </li>
-          <li>
-            <Link
               to="projects"
               smooth={true}
               duration={500}
@@ -86,6 +73,20 @@ function NavBar() {
               Projects
             </Link>
           </li>
+          <li>
+            <Link
+              to="skills"
+              smooth={true}
+              duration={500}
+              offset={-30}
+              spy={true}
+              activeClass="active"
+              className="nav-button"
+            >
+              Skills
+            </Link>
+          </li>
+
           <li>
             <Link
               to="contacts"

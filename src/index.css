@@ -77,8 +77,8 @@ html.light {
   );
   --footer-bg: #f0f0f0;
   --color-bg: rgb(255, 255, 255);
-  --card-color: #f3faf0;
-  --card-color: #f3faf0;
+  --card-color: #f9f9f9;
+
   --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   --card-light-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   --card-border: 1px solid rgba(223, 221, 221, 0.849);

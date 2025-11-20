@@ -52,35 +52,14 @@ const About = () => {
             </h4>
             <div className="space-y-6">
               <p className="global-text leading-relaxed indent-8 sm:indent-8 md:indent-16 lg:indent-0 text-justify">
-                I'm a passionate and detail-oriented developer focused on
-                crafting exceptional user experiences. While I specialize in
-                front-end development, I have professional project experience
-                with <strong>Next.js and TypeScript </strong>
-                for a Korea-based company. My responsibilities included{' '}
-                <strong>
-                  API integrations, working with Swagger UI, and maintaining and
-                  modifying existing projects, like modifying UI, fixing
-                  responsiveness, bugs and fixing api connections on
-                  Angular/Next.js project
-                </strong>
-                . My core expertise lies in building responsive and visually
-                engaging websites using React.js, Next.js, and Tailwind CSS. I
-                also design intuitive user interfaces with Figma and have
-                hands-on experience in WordPress development using Elementor for
-                efficient page building. Additionally, I've worked with
-                Bootstrap to deliver responsive designs and maintain design
-                consistency.
-              </p>
-
-              <p className="global-text leading-relaxed indent-8 sm:indent-8 md:indent-16 lg:indent-0 text-justify">
-                I thrive in collaborative environments, value clean and
-                maintainable code, and am constantly driven to learn and grow.
-                Beyond front-end development, I'm expanding my backend knowledge
-                through the MERN stack (MongoDB, Express.js, React.js, and
-                Node.js) to strengthen my full-stack capabilities. My goal is to
-                contribute to impactful projects, leverage my Next.js and
-                TypeScript expertise, and continue evolving as a versatile
-                developer.
+                I specialize in converting Figma designs into responsive
+                websites and mobile apps, maintaining existing applications, and
+                integrating APIs. Experienced at a Korea-based company, I work
+                with Next.js, React.js, TypeScript, Tailwind CSS, and other
+                modern frameworks and tools. I’m also knowledgeable in
+                WordPress, the MERN stack, and building interactive dashboards,
+                delivering solutions that meet client needs efficiently and
+                effectively.
               </p>
             </div>
 
@@ -118,13 +97,13 @@ const About = () => {
           </h2>
 
           <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8"
             data-aos="fade"
             data-aos-delay="100"
             data-aos-duration="300"
           >
             {/* UI/UX */}
-            <div className="card">
+            {/*    <div className="card">
               <img
                 src={uiux}
                 alt="UI/UX"
@@ -136,7 +115,7 @@ const About = () => {
                 flows using tools like Figma—ensuring a seamless and
                 user-centered experience.
               </p>
-            </div>
+            </div> */}
 
             {/* Web Development */}
             <div className="card" data-aos="fade" data-aos-delay="100">
@@ -148,8 +127,9 @@ const About = () => {
               <h5 className="card-title mb-2">Web Development</h5>
               <p className="card-description">
                 I build responsive and visually appealing websites using
-                React.js and Tailwind CSS—focusing on performance,
-                accessibility, and modern design best practices.
+                TypeScript, Next.js, React.js, Tailwind CSS and modern
+                tools—focusing on performance, accessibility, and modern design
+                best practices.
               </p>
             </div>
 
