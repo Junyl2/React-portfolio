@@ -116,7 +116,7 @@ function Projects() {
       title: 'Pet Save App',
       githubLink: 'https://github.com/Junyl2/pet_save_app_workspace',
       description:
-        'I built the front-end for client and integrated APIs for a Korea-based pet e-commerce mobile app, delivering a fast, modern, and fully responsive user experience.',
+        'I built the front-end for client/seller/admin and integrated APIs for a Korea-based pet e-commerce mobile app, delivering a fast, modern, and fully responsive user experience.',
       image: petSave,
       techStack: careManagement,
       liveLink: 'https://petsave.co.kr',
