@@ -6,6 +6,7 @@ import careProject from '@assets/all-devices-black.png';
 import solarProject from '@assets/solar.png';
 import lodongProject from '@assets/lodong_web.png';
 import petSave from '@assets/pet-save.png';
+import Orava from '@assets/orava-black.png';
 import project1 from '@assets/movie-mock.png';
 import project2 from '@assets/project2.png';
 import project3 from '@assets/tcc-mock.png';
@@ -100,6 +101,7 @@ function Projects() {
     'Spring Boot',
     'Swagger UI',
   ];
+  const oravaWebsite = ['React', 'TypeScript', 'Tailwind CSS', 'SPA'];
 
   const solar = [
     'Angular',
@@ -120,6 +122,15 @@ function Projects() {
       image: petSave,
       techStack: careManagement,
       liveLink: 'https://petsave.co.kr',
+    },
+    {
+      title: 'Orava Website Redesign',
+      githubLink: 'https://github.com/Junyl2?tab=repositories',
+      description:
+        'I modernized and redesigned the legacy ORAVA website by transforming it into a Single Page Application (SPA). Using React and TypeScript, I rebuilt the UI with a clean, responsive, and user-friendly layout, improved component structure, and enhanced overall performance and maintainability. Tailwind CSS was used to achieve a consistent, modern design system across all pages.',
+      image: Orava,
+      techStack: oravaWebsite,
+      liveLink: 'https://orava-website.vercel.app',
     },
 
     {
@@ -257,11 +268,13 @@ function Projects() {
               data-aos="fade"
             >
               {project.image && (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-50 md:h-60 lg:h-80 object-contain rounded-md mb-4"
-                />
+                <div className="image-wrapper overflow-hidden rounded-md mb-4">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-img w-full h-50 md:h-60 lg:h-80 object-contain rounded-md"
+                  />
+                </div>
               )}
 
               <h2 className="card-title text-xl font-bold text-[var(--text-color)] mt-4 mb-4">
