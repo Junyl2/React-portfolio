@@ -1,345 +1,234 @@
-import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
-import {
-  FaNetworkWired,
-  FaSitemap,
-  FaPlus,
-  FaMinus,
-  FaChartPie,
-  FaBroom,
-  FaSyncAlt,
-  FaProjectDiagram,
-  FaSatelliteDish,
-  FaFilm,
-  FaMagic,
-} from 'react-icons/fa';
-import { SiElementor } from 'react-icons/si';
+// Skill data organized for editorial layout
+const skillData = {
+  primary: [
+    { name: 'React', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' },
+    { name: 'Next.js', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg' },
+    { name: 'TypeScript', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg' },
+    { name: 'Tailwind CSS', logo: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg' },
+  ],
+  categories: [
+    {
+      title: 'Languages',
+      items: ['JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'SQL', 'PHP'],
+    },
+    {
+      title: 'Frameworks',
+      items: ['React', 'Next.js', 'Redux', 'Express.js', 'Framer Motion'],
+    },
+    {
+      title: 'Styling',
+      items: ['Tailwind CSS', 'Bootstrap', 'CSS Modules', 'Styled Components'],
+    },
+    {
+      title: 'Backend',
+      items: ['Node.js', 'Firebase', 'MongoDB', 'REST APIs'],
+    },
+    {
+      title: 'Tools',
+      items: ['Git', 'Figma', 'VS Code', 'Vite', 'WordPress'],
+    },
+    {
+      title: 'Analytics',
+      items: ['Power BI', 'Excel', 'Data Visualization'],
+    },
+  ],
+};
 
 function Skills() {
-  const [isDesktop, setIsDesktop] = useState(true);
-
-  useEffect(() => {
-    AOS.init({ once: true, duration: 600, easing: 'ease-in-out' });
-
-    const checkScreen = () => {
-      setIsDesktop(window.innerWidth >= 768);
-    };
-
-    checkScreen();
-    window.addEventListener('resize', checkScreen);
-    return () => window.removeEventListener('resize', checkScreen);
-  }, []);
-
-  const programmingSkills = [
-    {
-      name: 'HTML5',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg',
-      link: 'https://www.w3.org/html/',
-    },
-    {
-      name: 'CSS3',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg',
-      link: 'https://www.w3schools.com/css/',
-    },
-    {
-      name: 'JavaScript',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg',
-      link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
-    },
-    {
-      name: 'TypeScript',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg',
-      link: 'https://www.typescriptlang.org/',
-    },
-    {
-      name: 'Java',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg',
-      link: 'https://www.java.com/',
-    },
-    {
-      name: 'SQL',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg',
-      link: 'https://www.mysql.com/',
-    },
-  ];
-
-  const toolsUsed = [
-    {
-      name: 'Vite',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/vite/vite-original.svg',
-      link: 'https://vitejs.dev/',
-    },
-    {
-      name: 'VS Code',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg',
-      link: 'https://code.visualstudio.com/',
-    },
-    {
-      name: 'IntelliJ',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/intellij/intellij-original.svg',
-      link: 'https://www.jetbrains.com/idea/',
-    },
-    {
-      name: 'NetBeans',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Apache_NetBeans_Logo.svg',
-      link: 'https://netbeans.apache.org/',
-    },
-    {
-      name: 'WordPress',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/wordpress/wordpress-plain.svg',
-      link: 'https://wordpress.com/',
-    },
-    {
-      name: 'Elementor',
-      logo: <SiElementor size={30} title="Elementor" />,
-      link: 'https://elementor.com/',
-    },
-    {
-      name: 'SEO',
-      logo: 'https://cdn-icons-png.flaticon.com/512/281/281769.png',
-      link: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide',
-    },
-
-    {
-      name: 'Figma',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg',
-      link: 'https://figma.com/',
-    },
-    {
-      name: 'Local by Flywheel',
-      logo: <FaSitemap size={30} title="Local by Flywheel" />,
-      link: 'https://localwp.com/',
-    },
-    {
-      name: 'Git',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg',
-      link: 'https://git-scm.com/',
-    },
-    {
-      name: 'GitHub',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg',
-      link: 'https://github.com/',
-    },
-    {
-      name: 'Optimization',
-      logo: <FaMagic size={24} title="Web Performance Optimization" />,
-      link: 'https://web.dev/performance/',
-    },
-  ];
-
-  const libraries = [
-    {
-      name: 'React.js',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg',
-      link: 'https://reactjs.org/',
-    },
-    {
-      name: 'Next.js',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg',
-      link: 'https://nextjs.org/',
-    },
-    {
-      name: 'React Router',
-      logo: <FaNetworkWired size={30} title="React Router" />,
-      link: 'https://reactrouter.com/',
-    },
-    {
-      name: 'Redux',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg',
-      link: 'https://redux.js.org/',
-    },
-    {
-      name: 'Zustand',
-      logo: <FaProjectDiagram size={24} title="Zustand" />,
-      link: 'https://zustand-demo.pmnd.rs/',
-    },
-    {
-      name: 'AOS',
-      logo: <FaMagic size={24} title="AOS" />,
-      link: 'https://michalsnik.github.io/aos/',
-    },
-    {
-      name: 'Framer Motion',
-      logo: <FaFilm size={24} title="Framer Motion" />,
-      link: 'https://www.framer.com/motion/',
-    },
-    {
-      name: 'Axios',
-      logo: <FaSatelliteDish size={24} title="Axios" />,
-      link: 'https://axios-http.com/',
-    },
-  ];
-
-  const frameworks = [
-    {
-      name: 'Tailwind CSS',
-      logo: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg',
-      link: 'https://tailwindcss.com/',
-    },
-    {
-      name: 'Bootstrap',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-      link: 'https://getbootstrap.com/',
-    },
-    {
-      name: 'SCSS',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg',
-      link: 'https://sass-lang.com/',
-    },
-    {
-      name: 'DaisyUI',
-      logo: 'https://logo.svgcdn.com/l/daisyUI.png',
-      link: 'https://daisyui.com/',
-    },
-  ];
-
-  const backendTechnologies = [
-    {
-      name: 'PHP',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg',
-      link: 'https://www.php.net/',
-    },
-    {
-      name: 'Node.js',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg',
-      link: 'https://nodejs.org/',
-    },
-    {
-      name: 'Express.js',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg',
-      link: 'https://expressjs.com/',
-    },
-    {
-      name: 'MongoDB',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg',
-      link: 'https://www.mongodb.com/',
-    },
-    {
-      name: 'Firebase',
-      logo: 'https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg',
-      link: 'https://firebase.google.com/',
-    },
-    {
-      name: 'npm',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg',
-      link: 'https://www.npmjs.com/',
-    },
-  ];
-
-  const dataAnalyticsSkills = [
-    {
-      name: 'Power BI',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg',
-      link: 'https://powerbi.microsoft.com/',
-    },
-    {
-      name: 'Excel',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg',
-      link: 'https://www.microsoft.com/en-us/microsoft-365/excel',
-    },
-
-    {
-      name: 'SQL',
-      logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg',
-      link: 'https://www.mysql.com/',
-    },
-    {
-      name: 'Data Visualization',
-      logo: <FaChartPie size={24} title="Data Visualization" />,
-      link: 'https://datavizproject.com/',
-    },
-    {
-      name: 'Data Cleaning',
-      logo: <FaBroom size={24} title="Data Cleaning" />,
-      link: 'https://en.wikipedia.org/wiki/Data_cleansing',
-    },
-    {
-      name: 'Data Transformation',
-      logo: <FaSyncAlt size={24} title="Data Transformation" />,
-      link: 'https://learn.microsoft.com/en-us/power-query/',
-    },
-    {
-      name: 'Data Modeling',
-      logo: <FaProjectDiagram size={24} title="Data Modeling" />,
-      link: 'https://learn.microsoft.com/en-us/power-bi/transform-model/',
-    },
-  ];
-
-  const renderSkill = (skill) => (
-    <li
-      key={skill.name}
-      className="skill-box flex items-center gap-2 break-words whitespace-nowrap cursor-pointer"
-    >
-      <a href={skill.link} target="_blank" rel="noopener noreferrer">
-        {typeof skill.logo === 'string' ? (
-          <img
-            src={skill.logo}
-            alt={skill.name}
-            width="30"
-            height="30"
-            title={skill.name}
-            className="hover:scale-110 transition-transform"
-          />
-        ) : (
-          skill.logo
-        )}
-      </a>
-      {skill.name}
-    </li>
-  );
-
-  const SkillSection = ({ title, skills, note }) => (
-    <details
-      open={isDesktop}
-      className="group card transition-all duration-300"
-    >
-      <summary className="flex items-center justify-between cursor-pointer sub-heading-size header-color select-none">
-        <span>{title}</span>
-        <span className="ml-2">
-          <FaPlus className="group-open:hidden" />
-          <FaMinus className="hidden group-open:inline-block" />
-        </span>
-      </summary>
-      {note && <p className="mt-2 text-sm text-gray-500 italic">{note}</p>}
-      <ul className="flex flex-wrap gap-3 mt-4">{skills.map(renderSkill)}</ul>
-    </details>
-  );
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="container" id="skills">
-      <div className="flex justify-center pb-10" data-aos="fade">
-        <h1 className="text-[var(--text-color)] text-center heading-size relative">
-          TECHNICAL SKILLS
-          <span className="block h-[4px] w-1/2 divider-color mx-auto mt-2 rounded-full" />
-        </h1>
-      </div>
+    <section
+      ref={sectionRef}
+      id="skills"
+      className="py-24 md:py-32 lg:py-40 lg:pl-[72px] bg-[var(--color-bg-secondary)]"
+    >
+      <div className="container">
+        {/* Editorial Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="mb-20 md:mb-28"
+        >
+          {/* Breadcrumb style header */}
+          <div className="flex items-center gap-4 mb-8">
+            <span
+              className="text-[10px] tracking-[0.3em] uppercase text-[var(--color-text-muted)]"
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              Expertise / Stack
+            </span>
+            <span className="flex-1 h-px bg-[var(--color-border)]" />
+          </div>
 
-      <div className="grid grid-cols-1 gap-6" data-aos="fade">
-        <SkillSection
-          title="Languages & Query Languages"
-          skills={programmingSkills}
-        />
-        <SkillSection
-          title="Development Tools & Platforms"
-          skills={toolsUsed}
-        />
-        <SkillSection
-          title="JavaScript Libraries & Utilities"
-          skills={libraries}
-        />
-        <SkillSection title="CSS Frameworks & UI Styling" skills={frameworks} />
-        <SkillSection
-          title="Back-End Technologies & Tools"
-          skills={backendTechnologies}
-          note="Currently learning and applying these back-end technologies to expand my MERN/full-stack development skills."
-        />
-        <SkillSection
-          title="Data Analytics & Reporting Tools"
-          skills={dataAnalyticsSkills}
-          note="Improving data analytics proficiency through self-driven projects while assisting a data engineer in a part-time capacity. Focused on Power BI, Excel, SQL, and applying data modeling and transformation techniques."
-        />
+          {/* Large editorial title */}
+          <h2
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[var(--color-text-primary)] leading-[0.9] tracking-[-0.04em] mb-6"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            Tech
+            <br />
+            <span className="text-[var(--color-accent)]">Stack</span>
+          </h2>
+
+          <p
+            className="text-lg text-[var(--color-text-tertiary)] max-w-md"
+            style={{ fontFamily: 'var(--font-body)' }}
+          >
+            The technologies and tools I use to bring digital products to life.
+          </p>
+        </motion.div>
+
+        {/* Primary Skills - Large Feature */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-20"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <span
+              className="text-[10px] tracking-[0.3em] uppercase text-[var(--color-text-muted)]"
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              Primary Stack
+            </span>
+            <span className="flex-1 h-px bg-[var(--color-border)]" />
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {skillData.primary.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                className="group relative p-8 md:p-10 bg-[var(--color-bg-primary)] border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300"
+              >
+                {/* Number */}
+                <span
+                  className="absolute top-4 left-4 text-[10px] text-[var(--color-text-muted)]"
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
+                {/* Logo */}
+                <div className="flex justify-center mb-6">
+                  <img
+                    src={skill.logo}
+                    alt={skill.name}
+                    className="w-12 h-12 md:w-16 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+
+                {/* Name */}
+                <h3
+                  className="text-center text-lg md:text-xl font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors duration-300"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {skill.name}
+                </h3>
+
+                {/* Corner accent on hover */}
+                <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[40px] border-r-[40px] border-b-transparent border-r-transparent group-hover:border-r-[var(--color-accent)] transition-all duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Skills Index - Editorial List */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <div className="flex items-center gap-4 mb-12">
+            <span
+              className="text-[10px] tracking-[0.3em] uppercase text-[var(--color-text-muted)]"
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              Full Index
+            </span>
+            <span className="flex-1 h-px bg-[var(--color-border)]" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            {skillData.categories.map((category, catIndex) => (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.5 + catIndex * 0.1 }}
+              >
+                {/* Category Header */}
+                <div className="flex items-baseline gap-3 mb-4 pb-3 border-b border-[var(--color-border)]">
+                  <span
+                    className="text-xs text-[var(--color-accent)]"
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    {String(catIndex + 1).padStart(2, '0')}
+                  </span>
+                  <h3
+                    className="text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-[0.1em]"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                  >
+                    {category.title}
+                  </h3>
+                </div>
+
+                {/* Skills List */}
+                <ul className="space-y-2">
+                  {category.items.map((item) => (
+                    <li
+                      key={item}
+                      className="group flex items-center gap-3 py-1 cursor-default"
+                    >
+                      <span className="w-1 h-1 bg-[var(--color-border)] group-hover:bg-[var(--color-accent)] transition-colors duration-300" />
+                      <span
+                        className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors duration-300"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      >
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Editorial Footer Note */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 1 }}
+          className="mt-20 md:mt-28 pt-8 border-t border-[var(--color-border)]"
+        >
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <span className="w-2 h-2 bg-[var(--color-accent)] animate-pulse" />
+              <p
+                className="text-sm text-[var(--color-text-muted)]"
+                style={{ fontFamily: 'var(--font-body)' }}
+              >
+                Continuously learning and expanding my toolkit
+              </p>
+            </div>
+            <p
+              className="text-[10px] tracking-[0.2em] uppercase text-[var(--color-text-muted)]"
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              Updated 2024
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

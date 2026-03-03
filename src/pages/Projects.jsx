@@ -1,408 +1,301 @@
-import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import currentProject from '@assets/currentProject.png';
-import careProject from '@assets/all-devices-black.png';
-import solarProject from '@assets/solar.png';
-import lodongProject from '@assets/lodong_web.png';
-import petSave from '@assets/pet-save.png';
-import Orava from '@assets/orava-black.png';
-import project1 from '@assets/movie-mock.png';
-import project2 from '@assets/project2.png';
-import project3 from '@assets/tcc-mock.png';
-import project4 from '@assets/project4.png';
-import nflix from '@assets/nflix-min.png';
-import ghub from '@assets/ghub-min.png';
-import sflow from '@assets/sflow-min.png';
-import sm from '@assets/sm-min.png';
-import aimlab from '@assets/aimlab.png';
-import { FiExternalLink } from 'react-icons/fi';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { Link } from 'react-scroll';
+import { FiArrowUpRight, FiGithub } from 'react-icons/fi';
+
+// Import images
+import projectMain from '@assets/projects/project.png';
+import project1New from '@assets/projects/1.png';
+import project4th from '@assets/projects/4th.png';
+import project7th from '@assets/projects/7th.png';
+import project1 from '@assets/projects/project-1.png';
+import project2 from '@assets/projects/project-2.png';
+import project3 from '@assets/projects/project-3.png';
+import project4 from '@assets/projects/project-4.png';
+import project5 from '@assets/projects/project-5.png';
+import project6 from '@assets/projects/project-6.png';
+import project7 from '@assets/projects/project-7.png';
+
+// Projects data - editorial style
+const projects = [
+  {
+    title: 'Billy Økland',
+    subtitle: 'Personal Website',
+    year: '2025',
+    image: projectMain,
+    liveLink: 'https://www.billyokland.com/',
+    featured: true,
+  },
+  {
+    title: 'Rena Begravelse',
+    subtitle: 'Funeral Services',
+    year: '2025',
+    image: project1,
+    liveLink: 'https://www.renabegravelse.no/',
+  },
+  {
+    title: 'Brattvåg Vassverk',
+    subtitle: 'Water Utility Services',
+    year: '2025',
+    image: project1New,
+    liveLink: 'https://brattv-g-vassverk-sa.vercel.app/',
+    tempLink: true,
+    featured: true,
+  },
+  {
+    title: 'Format Grupen',
+    subtitle: 'Business Services',
+    year: '2025',
+    image: project4th,
+    liveLink: 'https://format-grupen-as.vercel.app/',
+    tempLink: true,
+  },
+  {
+    title: 'Bergenhus AS',
+    subtitle: 'Construction Company',
+    year: '2025',
+    image: project2,
+    liveLink: 'https://www.bergenhusas.no/',
+  },
+  {
+    title: 'Renhold SP',
+    subtitle: 'Cleaning Services',
+    year: '2025',
+    image: project3,
+    liveLink: 'https://www.renholdsp.no/',
+  },
+  {
+    title: 'MNN AS',
+    subtitle: 'Business Services',
+    year: '2025',
+    image: project7th,
+    liveLink: 'https://m-n-n-as.vercel.app/',
+    tempLink: true,
+  },
+  {
+    title: 'KBTT',
+    subtitle: 'Business Services',
+    year: '2025',
+    image: project4,
+    liveLink: 'https://www.kbtt.no/',
+    featured: true,
+  },
+  {
+    title: 'Gumme',
+    subtitle: 'Corporate Website',
+    year: '2025',
+    image: project5,
+    liveLink: 'https://www.gumme.no/',
+  },
+  {
+    title: 'Hansen Fjellsprengning',
+    subtitle: 'Rock Blasting Services',
+    year: '2025',
+    image: project6,
+    liveLink: 'https://www.hansenfjellsprengning.no/',
+  },
+  {
+    title: 'Oppsal Bil',
+    subtitle: 'Auto Dealership',
+    year: '2025',
+    image: project7,
+    liveLink: 'https://www.oppsalbil.no/',
+    featured: true,
+  },
+];
 
 function Projects() {
-  const [showFull, setShowFull] = useState({});
-
-  useEffect(() => {
-    AOS.init({ once: true, duration: 900, easing: 'ease-in-out' });
-  }, []);
-
-  const handleToggle = (index) => {
-    setShowFull((prev) => ({ ...prev, [index]: !prev[index] }));
-  };
-
-  const clothingTech = [
-    'React.Js',
-    'Tailwind CSS',
-    'JavaScript',
-    'Node.js',
-    'Express.js',
-    'MongoDB',
-    'Redux',
-    'Axios',
-    'React Router',
-    'Git',
-    'GitHub',
-  ];
-
-  const firstProjectTech = [
-    'React.js',
-    'Tailwind CSS',
-    'Framer Motion',
-    'CSS',
-    'JavaScript',
-    'TMDB API',
-    'AOS',
-    'React Router',
-    'Firebase',
-    'Node.js',
-    'Express.js',
-    'MongoDB',
-    'Git',
-    'GitHub',
-  ];
-
-  const secondProjectTech = [
-    'HTML5',
-    'CSS3',
-    'Bootstrap',
-    'JavaScript',
-    'AOS',
-    'Optimization',
-    'Formsubmit',
-    'Git',
-    'GitHub',
-  ];
-
-  const thirdProjectTech = [
-    'Wordpress',
-    'Elementor',
-    'HTML',
-    'CSS',
-    'JavaScript',
-  ];
-
-  const fourthProjectTech = [
-    'React.js',
-    'Tailwind CSS',
-    'CSS',
-    'JavaScript',
-    'Axios',
-    'Git',
-    'GitHub',
-  ];
-
-  const careManagement = [
-    'Next.js',
-    'TypeScript',
-    'Modular CSS',
-    'Redux',
-    'Framer Motion',
-    'Axios',
-    'Java',
-    'Spring Boot',
-    'Swagger UI',
-  ];
-  const oravaWebsite = ['React', 'TypeScript', 'Tailwind CSS', 'SPA'];
-
-  const solar = [
-    'Angular',
-    'TypeScript',
-    'CSS',
-    'BootStrap',
-    'Swagger UI',
-    'Java',
-    'SpringBoot',
-  ];
-
-  const projectList = [
-    {
-      title: 'Pet Save App',
-      githubLink: 'https://github.com/Junyl2/pet_save_app_workspace',
-      description:
-        'I built the front-end for client/seller/admin and integrated APIs for a Korea-based pet e-commerce mobile app, delivering a fast, modern, and fully responsive user experience.',
-      image: petSave,
-      techStack: careManagement,
-      liveLink: 'https://petsave.co.kr',
-    },
-    {
-      title: 'Orava Website Redesign',
-      githubLink: 'https://github.com/Junyl2?tab=repositories',
-      description:
-        'I modernized and redesigned the legacy ORAVA website by transforming it into a Single Page Application (SPA). Using React and TypeScript, I rebuilt the UI with a clean, responsive, and user-friendly layout, improved component structure, and enhanced overall performance and maintainability. Tailwind CSS was used to achieve a consistent, modern design system across all pages.',
-      image: Orava,
-      techStack: oravaWebsite,
-      liveLink: 'https://orava-website.vercel.app',
-    },
-
-    {
-      title: 'Care Management Website ',
-      githubLink: 'https://github.com/PackageWeb/care_manager_web',
-      description:
-        'I developed the front-end and implemented API integration for a care management platform (Korea-based Company) designed to assist the elderly in Korea with essential services such as health monitoring, meal assistance, bathing support, and more. The project focused on delivering a user-friendly and fully responsive interface with seamless connectivity to backend services, ensuring smooth access to various care options.',
-      image: careProject,
-      techStack: careManagement,
-      liveLink: 'https://kdolbom.com/',
-    },
-    {
-      title: 'Solar Maintenance Dashboard',
-      githubLink: 'https://github.com/Junyl2/Solar_mantainance_workspace',
-      description:
-        'Contributed by modifying the UI to be fully responsive and improving API connections for seamless performance.',
-      image: solarProject,
-      techStack: solar,
-      liveLink: 'https://on-energy.kr/',
-    },
-    {
-      title: 'Lodong Company Dashboard',
-      githubLink: 'https://github.com/Junyl2/lodong_web_workspace',
-      description:
-        'Integrated APIs and improved data handling features for the company’s internal dashboard, enhancing efficiency and usability.',
-      image: lodongProject,
-      techStack: careManagement,
-      liveLink: '',
-    },
-
-    {
-      title: 'School Website',
-      githubLink: 'https://github.com/Junyl2/TCC---School-website',
-      description:
-        'A responsive, performance-optimized website showcasing school information, programs, enrollment, events, and services. Includes contact details for inquiries. Backend integration coming soon',
-      image: project3,
-      techStack: secondProjectTech,
-      liveLink: 'https://talisactcitycollege.netlify.app',
-    },
-    {
-      title: 'Online Streaming Website',
-      githubLink: 'https://github.com/Junyl2/react-movie-app',
-      description:
-        'A responsive movie streaming web app that allows users to browse, search, add to a watch list, and view movie trailers in real-time. Logged-in users can save their watch list to their account using Firebase Authentication. A full-stack version using Express.js and MongoDB for persistent favorite storage is also implemented but not yet deployed, as it still needs polishing and optimization.',
-      image: project1,
-      techStack: firstProjectTech,
-      liveLink: 'https://junyl2.github.io/react-movie-app',
-    },
-    {
-      title: 'Clothing E-commerce',
-      githubLink: 'https://github.com/Junyl2/Revive',
-      description:
-        'I initiated a clothing e-commerce project using the MERN stack and completed the front-end for the homepage with a responsive landing design and navigation setup. I wasn’t able to finish the full build as I shifted focus to real-world projects, and since it wasn’t hosted, no live link is available',
-      image: currentProject,
-      techStack: clothingTech,
-      liveLink: '',
-    },
-    {
-      title: 'First Personal Portfolio',
-      githubLink: 'https://github.com/Junyl2/junyl-portfolio',
-      description:
-        'A clean, responsive multi-page dynamic website portfolio built with HTML, CSS, JavaScript and Bootstrap. Optimized for SEO and accessibility.',
-      image: project2,
-      techStack: secondProjectTech,
-      liveLink: 'https://junyl2.github.io/junyl-portfolio/',
-    },
-
-    {
-      title: 'Travel App',
-      description:
-        'Built a fully responsive travel app UI featuring package tours, chat functionality, an admin dashboard, and a chat inbox. Showcased dynamic UI, mobile-ready design, and real-time interactivity for a client demo. Currently under development within a WordPress environment and not yet deployed.',
-      image: project4,
-      techStack: thirdProjectTech,
-      liveLink: '',
-    },
-
-    {
-      title: 'Internship Practice Projects (Desktop UI)',
-      description:
-        'A collection of cloned UIs (Netflix, StackOverflow, GitHub, SM Appliances) and a simple game developed during my internship at Armada Logics as part of the Web Fundamentals training. These were created under strict 1–3 hour deadlines, which added pressure and limited the time for polishing details such as full responsiveness, font styling, and complete UI finishing. At this stage, I’m still developing my proficiency, but I made sure to follow semantic HTML, CSS, and JavaScript best practices as much as possible. These projects mainly reflect my progress and growing understanding of front-end development',
-      techStack: ['HTML', 'CSS', 'JavaScript'],
-      customLinks: [
-        {
-          label: 'Cloned Netflix UI',
-          github: 'https://github.com/Junyl2/Cloned-netflix',
-          live: 'https://clonednflix.netlify.app',
-        },
-        {
-          label: 'Cloned StackOverflow UI',
-          github: 'https://github.com/Junyl2/tech-forum-ui',
-          live: 'https://clonedsoverflow.netlify.app',
-        },
-        {
-          label: 'Cloned GitHub UI',
-          github: 'https://github.com/Junyl2/developer-dashboard-ui',
-          live: 'https://clonedghub.netlify.app/',
-        },
-        {
-          label: 'Cloned SM Appliances UI',
-          github: 'https://github.com/Junyl2/ecommerce-layout-practice',
-          live: 'https://clonedsmapplicanes.netlify.app',
-        },
-        {
-          label: 'Simple Aimlab',
-          github: 'https://github.com/Junyl2/Catching-the-Fireflies',
-          live: 'https://junyl2.github.io/Catching-the-Fireflies/',
-        },
-      ],
-    },
-  ];
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="container mx-auto px-4 py-12" id="projects">
-      <div className="flex justify-center pb-15" data-aos="fade">
-        <h1 className="text-[var(--text-color)] text-center heading-size relative">
-          PROJECTS
-          <span className="block h-[4px] w-1/2 divider-color mx-auto mt-2 rounded-full" />
-        </h1>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectList.map((project, index) => {
-          const isInternship = project.title === 'Internship Practice Projects';
-          const isExpanded = showFull[index] || isInternship;
-          const shortDesc = project.description?.slice(0, 150);
-          const showReadMore =
-            project.description && project.description.length > 150;
-
-          return (
-            <div
-              key={index}
-              className={`relative project-card bg-white rounded-xl overflow-hidden p-5 flex flex-col justify-start items-start transition duration-300 ${
-                project.customLinks ? 'md:col-span-2 lg:col-span-3' : ''
-              }`}
-              data-aos="fade"
+    <section
+      ref={sectionRef}
+      id="projects"
+      className="py-24 md:py-32 lg:py-40 lg:pl-[72px] overflow-hidden"
+    >
+      <div className="container">
+        {/* Editorial Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="mb-20 md:mb-28"
+        >
+          {/* Issue/Edition style header */}
+          <div className="flex items-center gap-4 mb-8">
+            <span
+              className="text-[10px] tracking-[0.3em] uppercase text-[var(--color-text-muted)]"
+              style={{ fontFamily: 'var(--font-mono)' }}
             >
-              {project.image && (
-                <div className="image-wrapper overflow-hidden rounded-md mb-4">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="project-img w-full h-50 md:h-60 lg:h-80 object-contain rounded-md"
-                  />
+              Portfolio / Works
+            </span>
+            <span className="flex-1 h-px bg-[var(--color-border)]" />
+            <span
+              className="text-[10px] tracking-[0.3em] uppercase text-[var(--color-text-muted)]"
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              2025—2026
+            </span>
+          </div>
+
+          {/* Large editorial title */}
+          <h2
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[var(--color-text-primary)] leading-[0.9] tracking-[-0.04em] mb-6"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            Selected
+            <br />
+            <span className="text-[var(--color-accent)]">Works</span>
+          </h2>
+
+          <p
+            className="text-lg text-[var(--color-text-tertiary)] max-w-md"
+            style={{ fontFamily: 'var(--font-body)' }}
+          >
+            Latest works out of all projects made.
+          </p>
+        </motion.div>
+
+        {/* Editorial Grid Layout */}
+        <div className="space-y-1">
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group"
+            >
+              {/* Divider line */}
+              <div className="h-px bg-[var(--color-border)] mb-6" />
+
+              <div className="grid grid-cols-12 gap-4 md:gap-6 items-start md:items-center py-6 md:py-8">
+                {/* Index number */}
+                <div className="col-span-2 md:col-span-1">
+                  <span
+                    className="text-xs text-[var(--color-text-muted)] tracking-wider"
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                 </div>
-              )}
 
-              <h2 className="card-title text-xl font-bold text-[var(--text-color)] mt-4 mb-4">
-                {project.title}
-              </h2>
-
-              {project.description && (
-                <p className="card-description text-gray-600 mb-2">
-                  {isExpanded ? project.description : `${shortDesc}...`}
-                </p>
-              )}
-
-              {showReadMore && !isInternship && (
-                <button
-                  onClick={() => handleToggle(index)}
-                  className="text-blue-600 hover:underline text-sm mb-2"
-                >
-                  {isExpanded ? 'Show Less' : 'Read More'}
-                </button>
-              )}
-
-              {project.techStack && (
-                <div>
-                  <p className="mb-2 text-sm font-medium">Technologies Used:</p>
-                  <ul className="flex flex-wrap gap-2 mb-4">
-                    {project.techStack.map((tech, i) => (
-                      <li
-                        key={i}
-                        className="tech-box text-sm px-3 py-1 rounded-full text-gray-800 bg-gray-100"
+                {/* Project info */}
+                <div className="col-span-10 md:col-span-4 lg:col-span-3">
+                  <div className="flex items-start gap-3">
+                    <div>
+                      <h3
+                        className="text-xl md:text-2xl font-semibold text-[var(--color-text-primary)] leading-tight tracking-[-0.02em] group-hover:text-[var(--color-accent)] transition-colors duration-300"
+                        style={{ fontFamily: 'var(--font-display)' }}
                       >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {project.customLinks ? (
-                <div className="mt-4 w-full">
-                  <p className="mb-2 text-sm font-semibold">Projects:</p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3">
-                    {project.customLinks.map((link, i) => {
-                      let imageSrc;
-                      if (link.label.includes('Netflix')) imageSrc = nflix;
-                      else if (link.label.includes('StackOverflow'))
-                        imageSrc = sflow;
-                      else if (link.label.includes('GitHub')) imageSrc = ghub;
-                      else if (link.label.includes('SM Appliances'))
-                        imageSrc = sm;
-                      else if (link.label.includes('Aimlab')) imageSrc = aimlab;
-
-                      return (
-                        <div
-                          key={i}
-                          className="flex flex-col justify-start bg-[var(--card-color)] p-3 rounded-md border-1 border-[var(--border-color)]"
-                        >
-                          {imageSrc && (
-                            <img
-                              src={imageSrc}
-                              alt={link.label}
-                              className="w-full max-h-48 h-auto object-contain rounded-md mb-2"
-                            />
-                          )}
-
-                          <div className="mb-2">
-                            <span className="text-sm font-medium text-[var(--text-color)]">
-                              {link.label}
-                            </span>
-                            <p className="text-[10px] text-gray-400 italic">
-                              Desktop focused only
-                            </p>
-                          </div>
-
-                          <div className="flex justify-center gap-4 mt-auto">
-                            <a
-                              href={link.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              title="GitHub Repository"
-                              className="text-[var(--text-color)] hover:opacity-80 transition"
-                            >
-                              <i className="fab fa-github fa-lg"></i>
-                            </a>
-                            <a
-                              href={link.live}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              title="Live Demo"
-                              className="text-[var(--text-color)] hover:opacity-80 transition"
-                            >
-                              <FiExternalLink size={20} />
-                            </a>
-                          </div>
-                        </div>
-                      );
-                    })}
+                        {project.title}
+                      </h3>
+                      <p
+                        className="text-sm text-[var(--color-text-muted)] mt-1"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      >
+                        {project.subtitle}
+                      </p>
+                    </div>
+                    {project.featured && (
+                      <span className="shrink-0 px-2 py-1 text-[9px] uppercase tracking-[0.15em] bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-medium">
+                        Featured
+                      </span>
+                    )}
                   </div>
                 </div>
-              ) : (
-                <div className="absolute bottom-4 right-4 flex items-center gap-4">
+
+                {/* Year */}
+                <div className="hidden md:block md:col-span-1">
+                  <span
+                    className="text-sm text-[var(--color-text-muted)]"
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    {project.year}
+                  </span>
+                </div>
+
+                {/* Image - Magazine style crop */}
+                <div className="col-span-12 md:col-span-8 lg:col-span-9 mt-4 md:mt-0">
+                  <div className="relative aspect-[16/9]">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="col-span-12 md:col-span-2 flex md:flex-col items-center md:items-end gap-3 mt-4 md:mt-0">
+                  {project.liveLink && (
+                    <div className="flex flex-col items-start md:items-end gap-1">
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link inline-flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-300"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      >
+                        <span>{project.tempLink ? 'Preview' : 'View'}</span>
+                        <FiArrowUpRight className="text-base transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                      </a>
+                      {project.tempLink && (
+                        <span className="text-[9px] text-[var(--color-text-muted)] italic">Awaiting domain</span>
+                      )}
+                    </div>
+                  )}
                   {project.githubLink && (
                     <a
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title="GitHub Repository"
-                      className="text-[var(--text-color)] hover:opacity-80 transition"
+                      className="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors duration-300"
+                      style={{ fontFamily: 'var(--font-body)' }}
                     >
-                      <i className="fab fa-github fa-lg"></i>
-                    </a>
-                  )}
-
-                  {project.liveLink && (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Live Project"
-                      className="text-[var(--text-color)] hover:opacity-80 transition"
-                    >
-                      <FiExternalLink size={20} />
+                      <FiGithub className="text-base" />
+                      <span className="hidden lg:inline">Source</span>
                     </a>
                   )}
                 </div>
-              )}
-            </div>
-          );
-        })}
+              </div>
+            </motion.article>
+          ))}
+
+          {/* Final divider */}
+          <div className="h-px bg-[var(--color-border)]" />
+        </div>
+
+        {/* Editorial footer CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 1 }}
+          className="mt-20 md:mt-28 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+        >
+          <p
+            className="text-[var(--color-text-muted)] text-sm max-w-sm"
+            style={{ fontFamily: 'var(--font-body)' }}
+          >
+            These projects represent a selection of my work. More available on request.
+          </p>
+          <Link
+            to="contacts"
+            smooth={true}
+            duration={800}
+            offset={-80}
+            className="group inline-flex items-center gap-3 px-6 py-3 border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] transition-all duration-300 cursor-pointer"
+          >
+            <span
+              className="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-white transition-colors duration-300"
+              style={{ fontFamily: 'var(--font-body)' }}
+            >
+              Contact Me
+            </span>
+            <FiArrowUpRight className="text-[var(--color-text-muted)] group-hover:text-white transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
