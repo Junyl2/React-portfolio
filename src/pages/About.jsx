@@ -137,7 +137,7 @@ const About = () => {
                     className="text-3xl font-semibold text-[var(--color-accent)]"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
-                    2+
+                    1+
                   </div>
                   <div className="text-xs text-[var(--color-text-muted)] mt-1">
                     Years of

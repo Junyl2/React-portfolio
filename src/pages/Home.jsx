@@ -210,7 +210,7 @@ const Home = () => {
                 <div className="flex flex-wrap gap-10 md:gap-16">
                   {[
                     { value: 50, suffix: '+', label: 'Projects' },
-                    { value: 2, suffix: '+', label: 'Years Exp.' },
+                    { value: 1, suffix: '+', label: 'Years Exp.' },
                     { value: 100, suffix: '%', label: 'Satisfaction' },
                   ].map((stat) => (
                     <div key={stat.label} className="flex flex-col gap-1">
