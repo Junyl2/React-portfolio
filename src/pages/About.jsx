@@ -31,16 +31,6 @@ const services = [
   },
 ];
 
-// Core technologies
-const technologies = [
-  'React',
-  'Next.js',
-  'TypeScript',
-  'Tailwind CSS',
-  'Node.js',
-  'Power BI',
-];
-
 // Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -137,12 +127,10 @@ const About = () => {
                     className="text-3xl font-semibold text-[var(--color-accent)]"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
-                    1+
+                    50+
                   </div>
                   <div className="text-xs text-[var(--color-text-muted)] mt-1">
-                    Years of
-                    <br />
-                    Experience
+                    Projects
                   </div>
                 </motion.div>
               </div>
@@ -156,46 +144,19 @@ const About = () => {
                   className="text-lg text-[var(--color-text-secondary)] leading-relaxed"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
-                  I'm a website developer with experience building web applications
-                  for companies across{' '}
-                  <span className="text-[var(--color-text-primary)] font-medium">Korea</span> and the{' '}
-                  <span className="text-[var(--color-text-primary)] font-medium">Philippines</span>.
-                  I specialize in converting Figma designs into responsive,
-                  production-ready code using modern frameworks.
+                  I'm a website developer passionate about building modern web applications
+                  that solve real problems. I specialize in converting designs into responsive,
+                  production-ready code using the latest frameworks and technologies.
                 </p>
                 <p
                   className="text-base text-[var(--color-text-tertiary)] leading-relaxed"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   My approach combines technical precision with an eye for design details.
-                  I've worked on e-commerce platforms, care management systems, and
-                  enterprise dashboards — always focusing on performance, accessibility,
+                  I've worked on various projects including business websites, mobile app, e-commerce platforms,
+                  and dashboards — always focusing on performance, accessibility,
                   and clean code architecture.
                 </p>
-              </motion.div>
-
-              {/* Technologies */}
-              <motion.div variants={itemVariants}>
-                <div className="flex items-center gap-4 mb-5">
-                  <span
-                    className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wider"
-                    style={{ fontFamily: 'var(--font-body)' }}
-                  >
-                    Core Stack
-                  </span>
-                  <div className="flex-1 h-px bg-[var(--color-border)]" />
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)] bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-all duration-300 cursor-default"
-                      style={{ fontFamily: 'var(--font-body)' }}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
               </motion.div>
 
               {/* CTA Buttons */}

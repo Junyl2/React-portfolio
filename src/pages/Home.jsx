@@ -1,8 +1,76 @@
 import { useEffect, useState, useRef } from 'react';
-import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FiArrowRight, FiGithub, FiMail } from 'react-icons/fi';
 import { Link } from 'react-scroll';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import profileImg from '@assets/about-pp.png';
+
+// Typewriter component
+const Typewriter = ({ lines, speed = 50, delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const [isComplete, setIsComplete] = useState(false);
+
+  // Flatten all lines into one string with markers
+  const fullText = lines.map(l => l.text).join('\n');
+
+  useEffect(() => {
+    let charIndex = 0;
+    let timeoutId;
+
+    const startTyping = () => {
+      const typeNextChar = () => {
+        if (charIndex < fullText.length) {
+          charIndex++;
+          setDisplayedText(fullText.slice(0, charIndex));
+          timeoutId = setTimeout(typeNextChar, speed);
+        } else {
+          setIsComplete(true);
+        }
+      };
+      typeNextChar();
+    };
+
+    const delayTimeout = setTimeout(startTyping, delay);
+
+    return () => {
+      clearTimeout(delayTimeout);
+      clearTimeout(timeoutId);
+    };
+  }, [fullText, speed, delay]);
+
+  // Blinking cursor
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 530);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  // Split displayed text back into lines
+  const displayedLines = displayedText.split('\n');
+
+  return (
+    <div className="mb-8">
+      {lines.map((line, index) => (
+        <span
+          key={index}
+          className={`block text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-semibold leading-[1.08] tracking-[-0.04em] ${index > 0 ? 'mt-2' : ''} ${line.accent ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-primary)]'}`}
+          style={{ fontFamily: 'var(--font-display)' }}
+        >
+          {displayedLines[index] || ''}
+          {/* Show cursor on current typing line or at end when complete */}
+          {((displayedLines.length - 1 === index && !isComplete) ||
+            (isComplete && index === lines.length - 1)) && (
+            <span
+              className={`inline-block w-[3px] h-[1em] bg-[var(--color-accent)] ml-1 align-middle ${showCursor ? 'opacity-100' : 'opacity-0'}`}
+              style={{ transition: 'opacity 0.1s' }}
+            />
+          )}
+        </span>
+      ))}
+    </div>
+  );
+};
 
 // Animated counter component
 const AnimatedCounter = ({ value, suffix = '', duration = 2 }) => {
@@ -139,28 +207,18 @@ const Home = () => {
                 </span>
               </motion.div>
 
-              {/* Main Headline */}
-              <motion.h1 variants={itemVariants} className="mb-8">
-                <span className="block text-[var(--color-text-primary)] text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-semibold leading-[1.08] tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>
-                  I design & build
-                </span>
-                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-semibold leading-[1.08] tracking-[-0.04em] mt-2" style={{ fontFamily: 'var(--font-display)' }}>
-                  <span className="text-[var(--color-accent)]">digital experiences</span>
-                </span>
-                <span className="block text-[var(--color-text-primary)] text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-semibold leading-[1.08] tracking-[-0.04em] mt-2" style={{ fontFamily: 'var(--font-display)' }}>
-                  that deliver.
-                </span>
+              {/* Main Headline with Typewriter */}
+              <motion.h1 variants={itemVariants}>
+                <Typewriter
+                  lines={[
+                    { text: 'I design & build', accent: false },
+                    { text: 'digital experiences', accent: true },
+                    { text: 'that deliver.', accent: false },
+                  ]}
+                  speed={45}
+                  delay={400}
+                />
               </motion.h1>
-
-              {/* Subheadline */}
-              <motion.p
-                variants={itemVariants}
-                className="text-lg md:text-xl text-[var(--color-text-tertiary)] max-w-xl leading-relaxed mb-12"
-                style={{ fontFamily: 'var(--font-body)' }}
-              >
-                Specializing in <span className="text-[var(--color-text-secondary)]">React</span> & <span className="text-[var(--color-text-secondary)]">Next.js</span> —
-                transforming designs into performant, accessible web applications.
-              </motion.p>
 
               {/* CTA Row */}
               <motion.div
@@ -185,7 +243,6 @@ const Home = () => {
                 <div className="flex items-center gap-3">
                   {[
                     { icon: FiGithub, href: 'https://github.com/Junyl2', label: 'GitHub' },
-                    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/Junyl2', label: 'LinkedIn' },
                     { icon: FiMail, href: 'mailto:artbyjunylc@gmail.com', label: 'Email' },
                   ].map(({ icon: Icon, href, label }) => (
                     <a
