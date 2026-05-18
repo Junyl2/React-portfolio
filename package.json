@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "predeploy": "npm run build ",
-    "deploy": "gh-pages -d dist --no-history",
+    "deploy": "gh-pages -d dist --no-history --dotfiles --nojekyll",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -162,7 +162,7 @@ const About = () => {
               {/* CTA Buttons */}
               <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-4">
                 <a
-                  href="/junyl-cv.pdf"
+                  href="/React-portfolio/junyl-cv.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-3 px-6 py-3.5 bg-[var(--color-accent)] transition-all duration-300 hover:bg-[var(--color-accent-hover)]"

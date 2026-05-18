@@ -45,18 +45,18 @@ function SideBar() {
             <HiHome /> Home
           </NavLink>
           <NavLink
-            to="/about"
-            className={navLinkStyles}
-            onClick={() => setIsOpen(false)}
-          >
-            <HiUser /> About
-          </NavLink>
-          <NavLink
             to="/projects"
             className={navLinkStyles}
             onClick={() => setIsOpen(false)}
           >
             <HiBriefcase /> Projects
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={navLinkStyles}
+            onClick={() => setIsOpen(false)}
+          >
+            <HiUser /> About
           </NavLink>
           <NavLink
             to="/resume"

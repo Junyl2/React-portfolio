@@ -31,8 +31,8 @@ function App() {
       {/* Main content */}
       <main>
         <Home />
-        <About />
         <Projects />
+        <About />
         <Skills />
         <Contacts />
       </main>

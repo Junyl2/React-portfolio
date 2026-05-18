@@ -354,7 +354,7 @@ const Home = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-[calc(72px+3rem)] lg:translate-x-0 z-20"
       >
         <Link
-          to="about"
+          to="projects"
           smooth={true}
           duration={800}
           offset={-80}

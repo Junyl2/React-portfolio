@@ -28,7 +28,7 @@ const skillData = {
     },
     {
       title: 'Tools',
-      items: ['Git', 'Figma', 'VS Code', 'Vite', 'WordPress'],
+      items: ['Git', 'Figma', 'VS Code', 'Vite', 'WordPress', 'Elementor'],
     },
     {
       title: 'Analytics',

@@ -4,8 +4,8 @@ import { FiHome, FiUser, FiBriefcase, FiLayers, FiMail, FiArrowUpRight } from 'r
 
 const navLinks = [
   { name: 'Home', to: 'home', offset: -100, icon: FiHome },
-  { name: 'About', to: 'about', offset: -80, icon: FiUser },
   { name: 'Work', to: 'projects', offset: -80, icon: FiBriefcase },
+  { name: 'About', to: 'about', offset: -80, icon: FiUser },
   { name: 'Skills', to: 'skills', offset: -80, icon: FiLayers },
   { name: 'Contact', to: 'contacts', offset: -80, icon: FiMail },
 ];
