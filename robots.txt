@@ -1,0 +1,11 @@
+# Robots.txt for Junyl Cabusas Portfolio
+# https://its.junyl.ct.ws
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://its.junyl.ct.ws/sitemap.xml
+
+# Crawl-delay (optional, be nice to servers)
+Crawl-delay: 1
